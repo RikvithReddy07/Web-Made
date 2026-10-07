@@ -16,7 +16,7 @@ export const WEBMADE_CONFIG = {
   whatsappNumber: "917013234749",
   
   // Contact Information
-  email: "hello@webmade.agency",
+  email: "webmade001@gmail.com",
   phone: "+91 7013234749",
   displayPhone: "+91 70132 34749",
   businessHours: "Monday – Saturday",

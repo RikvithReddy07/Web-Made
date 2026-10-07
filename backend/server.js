@@ -52,12 +52,16 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start listening
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n==============================================`);
-  console.log(`🚀 Smart Clean India Backend Server Running!`);
-  console.log(`📡 Local Port : http://localhost:${PORT}`);
-  console.log(`🔗 API Hello  : http://localhost:${PORT}/api/hello`);
-  console.log(`📊 API Stats  : http://localhost:${PORT}/api/stats`);
-  console.log(`==============================================\n`);
-});
+// Start listening if not running in serverless environment
+if (!process.env.VERCEL) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`\n==============================================`);
+    console.log(`🚀 Smart Clean India Backend Server Running!`);
+    console.log(`📡 Local Port : http://localhost:${PORT}`);
+    console.log(`🔗 API Hello  : http://localhost:${PORT}/api/hello`);
+    console.log(`📊 API Stats  : http://localhost:${PORT}/api/stats`);
+    console.log(`==============================================\n`);
+  });
+}
+
+export default app;
