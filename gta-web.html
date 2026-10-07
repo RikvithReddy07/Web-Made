@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Web Clone</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #222;
+            color: white;
+            font-family: sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            color: #ef4444;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ui">
+        <h1>Grand Theft Auto: Web Edition</h1>
+        <p><strong>W, A, S, D</strong> or <strong>Arrows</strong> to drive</p>
+        <p>Speed: <span id="speedDisplay">0</span> mph</p>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const speedDisplay = document.getElementById('speedDisplay');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const keys = {};
+        window.addEventListener('keydown', e => keys[e.key.toLowerCase()] = true);
+        window.addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
+
+        // Game State
+        const car = {
+            x: 0, y: 0,
+            width: 24, height: 44,
+            angle: 0,
+            speed: 0,
+            maxSpeed: 15,
+            acceleration: 0.3,
+            friction: 0.1,
+            turnSpeed: 0.06
+        };
+
+        // Generate a random city layout
+        const buildings = [];
+        for(let i = 0; i < 50; i++) {
+            buildings.push({
+                x: (Math.random() - 0.5) * 3000,
+                y: (Math.random() - 0.5) * 3000,
+                w: 100 + Math.random() * 200,
+                h: 100 + Math.random() * 200,
+                color: ['#475569', '#334155', '#1e293b', '#0f172a'][Math.floor(Math.random()*4)]
+            });
+        }
+        
+        // Remove buildings too close to spawn (0,0)
+        for(let i = buildings.length - 1; i >= 0; i--) {
+            let b = buildings[i];
+            if(Math.abs(b.x) < 200 && Math.abs(b.y) < 200) {
+                buildings.splice(i, 1);
+            }
+        }
+
+        function update() {
+            // Acceleration
+            if (keys['w'] || keys['arrowup']) {
+                car.speed += car.acceleration;
+            } else if (keys['s'] || keys['arrowdown']) {
+                car.speed -= car.acceleration;
+            }
+
+            // Friction
+            if (car.speed > 0) {
+                car.speed -= car.friction;
+            } else if (car.speed < 0) {
+                car.speed += car.friction;
+            }
+
+            if (Math.abs(car.speed) < car.friction) car.speed = 0;
+            if (car.speed > car.maxSpeed) car.speed = car.maxSpeed;
+            if (car.speed < -car.maxSpeed / 2) car.speed = -car.maxSpeed / 2;
+
+            // Steering
+            if (car.speed !== 0) {
+                const flip = car.speed > 0 ? 1 : -1;
+                if (keys['a'] || keys['arrowleft']) {
+                    car.angle -= car.turnSpeed * flip;
+                }
+                if (keys['d'] || keys['arrowright']) {
+                    car.angle += car.turnSpeed * flip;
+                }
+            }
+
+            // Move
+            let nextX = car.x + Math.sin(car.angle) * car.speed;
+            let nextY = car.y - Math.cos(car.angle) * car.speed;
+
+            // Collision Detection with buildings
+            let collision = false;
+            for (let b of buildings) {
+                // simple AABB collision check based on car center
+                if (nextX > b.x - car.width && nextX < b.x + b.w + car.width &&
+                    nextY > b.y - car.height && nextY < b.y + b.h + car.height) {
+                    collision = true;
+                    break;
+                }
+            }
+
+            if(collision) {
+                car.speed = -car.speed * 0.4; // Bounce
+            } else {
+                car.x = nextX;
+                car.y = nextY;
+            }
+
+            // Update UI
+            speedDisplay.textContent = Math.abs(Math.round(car.speed * 4));
+        }
+
+        function draw() {
+            // Clear screen (Asphalt color)
+            ctx.fillStyle = '#1c1c1c';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.save();
+            // Camera follows car
+            ctx.translate(canvas.width / 2 - car.x, canvas.height / 2 - car.y);
+
+            // Draw road lines (grid)
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            for(let i = -2000; i <= 2000; i+=150) {
+                ctx.beginPath(); ctx.moveTo(i, -2000); ctx.lineTo(i, 2000); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(-2000, i); ctx.lineTo(2000, i); ctx.stroke();
+            }
+
+            // Draw buildings
+            for (let b of buildings) {
+                ctx.fillStyle = b.color;
+                ctx.fillRect(b.x, b.y, b.w, b.h);
+                // Building roof outline
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 4;
+                ctx.strokeRect(b.x, b.y, b.w, b.h);
+            }
+
+            // Draw Car
+            ctx.translate(car.x, car.y);
+            ctx.rotate(car.angle);
+            
+            // Car Body
+            ctx.fillStyle = '#ef4444'; // Red sports car
+            ctx.fillRect(-car.width / 2, -car.height / 2, car.width, car.height);
+            
+            // Windshield
+            ctx.fillStyle = '#0ea5e9'; // Glass
+            ctx.fillRect(-car.width / 2 + 2, -car.height / 2 + 8, car.width - 4, 10);
+            
+            // Rear window
+            ctx.fillStyle = '#0ea5e9';
+            ctx.fillRect(-car.width / 2 + 2, car.height / 2 - 12, car.width - 4, 6);
+
+            // Headlights
+            ctx.fillStyle = '#fef08a';
+            ctx.fillRect(-car.width / 2 + 2, -car.height / 2, 6, 4);
+            ctx.fillRect(car.width / 2 - 8, -car.height / 2, 6, 4);
+
+            ctx.restore();
+        }
+
+        function loop() {
+            update();
+            draw();
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
+</body>
+</html>

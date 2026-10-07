@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #ec4899;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-color-1: #e0e7ff;
+            --bg-color-2: #fbcfe8;
+            --bg-color-3: #f3e8ff;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: rgba(255, 255, 255, 0.6);
+            --input-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark {
+            --bg-color-1: #0f172a;
+            --bg-color-2: #312e81;
+            --bg-color-3: #4c1d95;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --border: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: all 0.4s ease;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: var(--input-bg);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            background: var(--input-bg);
+            color: var(--text-main);
+            border: 2px solid transparent;
+            margin: 12px 0;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-radius: 12px;
+        }
+
+        .option:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+        }
+
+        .progress {
+            background: rgba(0,0,0,0.05);
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .dark .progress {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--success), #34d399);
+            border-radius: 10px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #timer {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--danger);
+            margin: 10px 0;
+            text-shadow: 0 2px 10px rgba(239, 68, 68, 0.2);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: var(--input-bg);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(139, 92, 246, 0.1);
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover td {
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            box-shadow: none;
+            padding: 0;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: rotate(15deg);
+            box-shadow: none;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container fade-in">
+
+    <button class="theme-toggle" onclick="toggleDark()" id="themeIcon">
+        🌙
+    </button>
+
+    <h1>Quiz Master Pro</h1>
+
+    <div id="auth" class="fade-in">
+        <h2>Welcome Back!</h2>
+        <p style="margin-bottom: 25px;">Enter your username to start learning.</p>
+        
+        <div class="input-group">
+            <input id="username" placeholder="e.g. AwesomeUser123" onkeypress="handleEnter(event)">
+        </div>
+
+        <button onclick="login()">
+            Continue
+        </button>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <h2 id="welcome"></h2>
+        
+        <div style="display: flex; justify-content: space-around; background: var(--input-bg); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+            <div>
+                <p style="margin: 0; font-size: 0.9rem;">Total Quizzes</p>
+                <span id="quizCount" style="font-size: 1.5rem; color: var(--primary);">0</span>
+            </div>
+            <div>
+                <p style="margin: 0; font-size: 0.9rem;">Best Score</p>
+                <span id="bestScore" style="font-size: 1.5rem; color: var(--success);">0</span>
+            </div>
+        </div>
+
+        <div id="badges" style="margin-bottom: 25px; min-height: 35px;"></div>
+
+        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <div style="flex: 1;">
+                <select id="category">
+                    <option value="Programming">Programming</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Cars">Cars</option>
+                    <option value="Bike">Bike</option>
+                    <option value="News">News</option>
+                    <option value="Football">Football</option>
+                </select>
+            </div>
+            <div style="flex: 1;">
+                <select id="difficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="startQuiz()" style="width: 100%; padding: 15px; font-size: 1.2rem;">
+            Start Quiz Now
+        </button>
+
+        <h3>Leaderboard</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody id="leaderboard"></tbody>
+        </table>
+    </div>
+
+    <div id="quiz" class="hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="color: var(--text-muted); font-weight: 500;" id="questionCounter">Question 1/10</span>
+            <div id="timer">30</div>
+        </div>
+        
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <h2 id="question" style="min-height: 80px; display: flex; align-items: center; justify-content: center;"></h2>
+
+        <div id="options" style="margin-top: 20px;"></div>
+    </div>
+
+    <div id="result" class="hidden fade-in">
+        <div style="font-size: 4rem; margin-bottom: 10px;">🏆</div>
+        <h2>Quiz Finished!</h2>
+        
+        <div style="background: var(--input-bg); padding: 30px; border-radius: 20px; margin: 20px 0;">
+            <h3 id="scoreText" style="font-size: 2rem; margin: 0; color: var(--text-main);"></h3>
+            <p id="feedbackText" style="margin-top: 10px; font-size: 1.2rem;"></p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <button onclick="downloadCertificate()" style="width: 80%;">
+                Download Certificate
+            </button>
+            <button onclick="goHome()" style="width: 80%; background: var(--input-bg); color: var(--text-main); box-shadow: none; border: 1px solid var(--border);">
+                Back to Dashboard
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let user = "";
+    let current = 0;
+    let score = 0;
+    let timer;
+    let timeLeft = 30;
+    let currentQuestions = [];
+
+    // Question Bank: 10 Questions per Topic & Difficulty (Total: 240)
+    const questionBank = {
+        "Programming": {
+            "Easy": [
+                { q: "What does HTML stand for?", o: ["Hyper Text Markup Language", "High Tech Machine Language", "Hyper Tool Multi Language", "Home Tool Markup Language"], a: "Hyper Text Markup Language" },
+                { q: "Which symbol is used for an ID selector in CSS?", o: [".", "#", "$", "@"], a: "#" },
+                { q: "What does CSS stand for?", o: ["Computer Style Sheets", "Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets"], a: "Cascading Style Sheets" },
+                { q: "Which tag is used for links in HTML?", o: ["<link>", "<a>", "<href>", "<url>"], a: "<a>" },
+                { q: "Which tag is for the largest heading?", o: ["<head>", "<h6>", "<h1>", "<title>"], a: "<h1>" },
+                { q: "Who is the creator of JavaScript?", o: ["Bill Gates", "Brendan Eich", "Steve Jobs", "Tim Berners-Lee"], a: "Brendan Eich" },
+                { q: "Which language is used for styling web pages?", o: ["HTML", "Python", "CSS", "Java"], a: "CSS" },
+                { q: "Which symbol is used for a class selector in CSS?", o: ["#", ".", "*", "&"], a: "." },
+                { q: "Default file name for a website homepage?", o: ["main.html", "home.html", "index.html", "start.html"], a: "index.html" },
+                { q: "What tag defines a line break in HTML?", o: ["<break>", "<lb>", "<br>", "<hr>"], a: "<br>" }
+            ],
+            "Medium": [
+                { q: "Inside which element do we put JavaScript?", o: ["<javascript>", "<script>", "<js>", "<scripting>"], a: "<script>" },
+                { q: "Where is the correct place to insert a JavaScript?", o: ["The <head> section", "The <body> section", "Both <head> and <body>", "External file only"], a: "Both <head> and <body>" },
+                { q: "How do you write an IF statement in JavaScript?", o: ["if i = 5 then", "if i == 5 then", "if (i == 5)", "if i = 5"], a: "if (i == 5)" },
+                { q: "How does a FOR loop start?", o: ["for (i = 0; i <= 5; i++)", "for (i <= 5; i++)", "for i = 1 to 5", "for (i = 0; i <= 5)"], a: "for (i = 0; i <= 5; i++)" },
+                { q: "How to add a single-line comment in JS?", o: ["<!-- comment -->", "// comment", "/* comment", "' comment"], a: "// comment" },
+                { q: "How to declare a variable in JS?", o: ["var carName;", "variable carName;", "v carName;", "declare carName;"], a: "var carName;" },
+                { q: "Which operator is used for strict equality?", o: ["==", "===", "=", "!="], a: "===" },
+                { q: "What does DOM stand for?", o: ["Data Object Model", "Document Oriented Model", "Document Object Model", "Digital Object Model"], a: "Document Object Model" },
+                { q: "Which property is used to change HTML content?", o: ["innerHTML", "textContent", "innerText", "htmlContent"], a: "innerHTML" },
+                { q: "What is the output of '2' + 2 in JS?", o: ["4", "22", "NaN", "Error"], a: "22" }
+            ],
+            "Hard": [
+                { q: "What is a closure in JavaScript?", o: ["A function with its lexical environment", "A closed window", "A private variable", "A loop that never ends"], a: "A function with its lexical environment" },
+                { q: "Which array method does NOT mutate the original array?", o: ["splice()", "sort()", "map()", "reverse()"], a: "map()" },
+                { q: "What will `typeof NaN` return?", o: ["undefined", "NaN", "number", "string"], a: "number" },
+                { q: "What is the event loop in JS?", o: ["A loop that handles DOM events", "Mechanism that handles async callbacks", "A loop that iterates arrays", "A bug in V8 engine"], a: "Mechanism that handles async callbacks" },
+                { q: "What does hoisting mean in JavaScript?", o: ["Moving declarations to the top", "Lifting variables from scope", "Deleting unused variables", "Creating global variables"], a: "Moving declarations to the top" },
+                { q: "What is the value of `undefined == null`?", o: ["true", "false", "NaN", "Error"], a: "true" },
+                { q: "What does `bind()` do?", o: ["Binds two arrays", "Creates a new function with bound `this`", "Binds an event to DOM", "Stops execution context"], a: "Creates a new function with bound `this`" },
+                { q: "What is a Promise?", o: ["A variable that won't change", "Object representing eventual completion of async operation", "A strictly typed function", "An API call method"], a: "Object representing eventual completion of async operation" },
+                { q: "Difference between var and let?", o: ["var is block scoped", "let is block scoped", "No difference", "var is read-only"], a: "let is block scoped" },
+                { q: "How do you empty an array in JavaScript?", o: ["array.empty()", "array.length = 0", "array = null", "delete array"], a: "array.length = 0" }
+            ]
+        },
+        "Science": {
+            "Easy": [
+                { q: "What is the closest planet to the Sun?", o: ["Earth", "Venus", "Mercury", "Mars"], a: "Mercury" },
+                { q: "What is the powerhouse of the cell?", o: ["Nucleus", "Ribosome", "Mitochondria", "Lysosome"], a: "Mitochondria" },
+                { q: "What gas do humans breathe out?", o: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], a: "Carbon Dioxide" },
+                { q: "What is the freezing point of water in Celsius?", o: ["0", "32", "100", "-1"], a: "0" },
+                { q: "What force keeps us on Earth?", o: ["Magnetism", "Friction", "Gravity", "Tension"], a: "Gravity" },
+                { q: "What is the center of our solar system?", o: ["Earth", "Mars", "The Moon", "The Sun"], a: "The Sun" },
+                { q: "What metal is liquid at room temperature?", o: ["Iron", "Mercury", "Gold", "Lead"], a: "Mercury" },
+                { q: "What is the chemical symbol for water?", o: ["HO", "H2O", "O2", "CO2"], a: "H2O" },
+                { q: "What process do plants use to make food?", o: ["Respiration", "Digestion", "Photosynthesis", "Fermentation"], a: "Photosynthesis" },
+                { q: "What is the largest organ of the human body?", o: ["Heart", "Liver", "Brain", "Skin"], a: "Skin" }
+            ],
+            "Medium": [
+                { q: "What is the chemical symbol for Gold?", o: ["Ag", "Go", "Au", "Gd"], a: "Au" },
+                { q: "What is the most abundant gas in Earth's atmosphere?", o: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"], a: "Nitrogen" },
+                { q: "What type of energy does an unlit match have?", o: ["Kinetic", "Thermal", "Chemical", "Nuclear"], a: "Chemical" },
+                { q: "What is the approximate speed of light?", o: ["300,000 km/s", "150,000 km/s", "1,000,000 km/s", "50,000 km/s"], a: "300,000 km/s" },
+                { q: "What is the unit of electrical resistance?", o: ["Volt", "Ampere", "Ohm", "Watt"], a: "Ohm" },
+                { q: "Who is credited with inventing the telephone?", o: ["Thomas Edison", "Nikola Tesla", "Alexander Graham Bell", "Albert Einstein"], a: "Alexander Graham Bell" },
+                { q: "How many bones are in the adult human body?", o: ["206", "210", "195", "250"], a: "206" },
+                { q: "What is the chemical symbol for Iron?", o: ["Ir", "Fe", "In", "I"], a: "Fe" },
+                { q: "Which planet is known for its prominent rings?", o: ["Jupiter", "Uranus", "Neptune", "Saturn"], a: "Saturn" },
+                { q: "What is the study of mushrooms called?", o: ["Botany", "Mycology", "Zoology", "Ecology"], a: "Mycology" }
+            ],
+            "Hard": [
+                { q: "What particle was discovered at CERN in 2012?", o: ["Quark", "Higgs boson", "Neutrino", "Gluon"], a: "Higgs boson" },
+                { q: "What is the hardest known natural material?", o: ["Diamond", "Graphene", "Lonsdaleite", "Titanium"], a: "Diamond" },
+                { q: "Which element has the highest melting point?", o: ["Iron", "Tungsten", "Platinum", "Osmium"], a: "Tungsten" },
+                { q: "What is the most abundant element in the universe?", o: ["Oxygen", "Carbon", "Helium", "Hydrogen"], a: "Hydrogen" },
+                { q: "The law of inertia is also known as Newton's?", o: ["First Law", "Second Law", "Third Law", "Fourth Law"], a: "First Law" },
+                { q: "What part of the brain controls balance?", o: ["Cerebrum", "Cerebellum", "Brainstem", "Hypothalamus"], a: "Cerebellum" },
+                { q: "What is the estimated age of the universe?", o: ["4.5 billion years", "10.2 billion years", "13.8 billion years", "20 billion years"], a: "13.8 billion years" },
+                { q: "What is the process by which somatic cells divide?", o: ["Meiosis", "Mitosis", "Fission", "Budding"], a: "Mitosis" },
+                { q: "Which radioactive element is commonly used in nuclear reactors?", o: ["Radium", "Plutonium", "Uranium", "Thorium"], a: "Uranium" },
+                { q: "What is the study of fossils called?", o: ["Archaeology", "Anthropology", "Paleontology", "Geology"], a: "Paleontology" }
+            ]
+        },
+        "History": {
+            "Easy": [
+                { q: "Who was the first US President?", o: ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"], a: "George Washington" },
+                { q: "Who built the pyramids?", o: ["Romans", "Greeks", "Egyptians", "Mayans"], a: "Egyptians" },
+                { q: "In which year did the Titanic sink?", o: ["1912", "1905", "1920", "1898"], a: "1912" },
+                { q: "Who is credited with discovering America in 1492?", o: ["Vasco da Gama", "Ferdinand Magellan", "Christopher Columbus", "Marco Polo"], a: "Christopher Columbus" },
+                { q: "Which ancient civilization built the Colosseum?", o: ["Greeks", "Romans", "Persians", "Babylonians"], a: "Romans" },
+                { q: "Who was known as the Maid of Orleans?", o: ["Queen Victoria", "Joan of Arc", "Marie Antoinette", "Cleopatra"], a: "Joan of Arc" },
+                { q: "In which country did the Industrial Revolution begin?", o: ["France", "Germany", "USA", "Britain"], a: "Britain" },
+                { q: "The Great Wall is located in which country?", o: ["Japan", "India", "China", "Mongolia"], a: "China" },
+                { q: "Who painted the Mona Lisa?", o: ["Michelangelo", "Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"], a: "Leonardo da Vinci" },
+                { q: "What was the name of the ship that brought Pilgrims to America?", o: ["Santa Maria", "Mayflower", "Endeavour", "Beagle"], a: "Mayflower" }
+            ],
+            "Medium": [
+                { q: "In what year did World War II end?", o: ["1942", "1945", "1950", "1939"], a: "1945" },
+                { q: "Which empire was ruled by Julius Caesar?", o: ["Ottoman", "Roman", "British", "Mongol"], a: "Roman" },
+                { q: "Who was the first woman to fly solo across the Atlantic?", o: ["Amelia Earhart", "Bessie Coleman", "Harriet Quimby", "Sally Ride"], a: "Amelia Earhart" },
+                { q: "In what year did World War I start?", o: ["1910", "1914", "1918", "1922"], a: "1914" },
+                { q: "Who wrote the American Declaration of Independence?", o: ["George Washington", "Benjamin Franklin", "Thomas Jefferson", "John Adams"], a: "Thomas Jefferson" },
+                { q: "What was the name of the first artificial Earth satellite?", o: ["Apollo 11", "Voyager 1", "Sputnik 1", "Explorer 1"], a: "Sputnik 1" },
+                { q: "Which ancient Roman city was destroyed by Mount Vesuvius?", o: ["Rome", "Pompeii", "Naples", "Florence"], a: "Pompeii" },
+                { q: "Who defeated Napoleon at the Battle of Waterloo?", o: ["Duke of Wellington", "Lord Nelson", "Tsar Alexander", "George III"], a: "Duke of Wellington" },
+                { q: "Who was the first human in space?", o: ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "John Glenn"], a: "Yuri Gagarin" },
+                { q: "The Magna Carta was signed in what year?", o: ["1066", "1215", "1492", "1776"], a: "1215" }
+            ],
+            "Hard": [
+                { q: "Who was the first Emperor of Rome?", o: ["Julius Caesar", "Nero", "Augustus", "Caligula"], a: "Augustus" },
+                { q: "In what year did the Berlin Wall fall?", o: ["1989", "1991", "1985", "1993"], a: "1989" },
+                { q: "Who was the leader of the Soviet Union during World War II?", o: ["Vladimir Lenin", "Leon Trotsky", "Joseph Stalin", "Nikita Khrushchev"], a: "Joseph Stalin" },
+                { q: "Which battle ended the Wars of the Roses?", o: ["Battle of Hastings", "Battle of Agincourt", "Battle of Bosworth Field", "Battle of Towton"], a: "Battle of Bosworth Field" },
+                { q: "What was the first dynasty of Imperial China?", o: ["Han Dynasty", "Ming Dynasty", "Tang Dynasty", "Qin Dynasty"], a: "Qin Dynasty" },
+                { q: "Who was the last Tsar of Russia?", o: ["Alexander III", "Nicholas II", "Peter the Great", "Ivan the Terrible"], a: "Nicholas II" },
+                { q: "In what year did the French Revolution begin?", o: ["1776", "1789", "1812", "1799"], a: "1789" },
+                { q: "Which treaty officially ended World War I?", o: ["Treaty of Paris", "Treaty of Versailles", "Treaty of Tordesillas", "Treaty of Ghent"], a: "Treaty of Versailles" },
+                { q: "The Hundred Years' War was fought between which two countries?", o: ["Spain and Portugal", "England and France", "Germany and Russia", "Italy and Greece"], a: "England and France" },
+                { q: "Who was the first female Prime Minister of the UK?", o: ["Theresa May", "Indira Gandhi", "Angela Merkel", "Margaret Thatcher"], a: "Margaret Thatcher" }
+            ]
+        },
+        "Anime": {
+            "Easy": [
+                { q: "Who is the main character of Naruto?", o: ["Sasuke", "Kakashi", "Naruto Uzumaki", "Itachi"], a: "Naruto Uzumaki" },
+                { q: "What anime features Saiyans?", o: ["One Piece", "Bleach", "Dragon Ball Z", "Fairy Tail"], a: "Dragon Ball Z" },
+                { q: "What is the name of Ash's first Pokemon?", o: ["Bulbasaur", "Charmander", "Squirtle", "Pikachu"], a: "Pikachu" },
+                { q: "Which anime focuses on Hidden Ninja Villages?", o: ["Bleach", "Naruto", "One Piece", "Hunter x Hunter"], a: "Naruto" },
+                { q: "Which anime is about pirates searching for treasure?", o: ["Fairy Tail", "One Piece", "Black Clover", "Gintama"], a: "One Piece" },
+                { q: "What is the name of the Shinigami who loves apples in Death Note?", o: ["Rem", "Ryuk", "Light", "L"], a: "Ryuk" },
+                { q: "Who is the boy without magic who wants to be Wizard King?", o: ["Deku", "Naruto", "Asta", "Tanjiro"], a: "Asta" },
+                { q: "Who is the protagonist of My Hero Academia?", o: ["Bakugo", "Todoroki", "Izuku Midoriya", "All Might"], a: "Izuku Midoriya" },
+                { q: "Which popular anime is about high school volleyball?", o: ["Kuroko's Basketball", "Free!", "Haikyuu", "Blue Lock"], a: "Haikyuu" },
+                { q: "What is the name of Tanjiro's demon sister?", o: ["Shinobu", "Nezuko", "Mitsuri", "Kanao"], a: "Nezuko" }
+            ],
+            "Medium": [
+                { q: "Who is the creator of One Piece?", o: ["Masashi Kishimoto", "Akira Toriyama", "Eiichiro Oda", "Tite Kubo"], a: "Eiichiro Oda" },
+                { q: "What is the highest grossing anime film of all time?", o: ["Spirited Away", "Your Name", "Demon Slayer: Mugen Train", "Weathering with You"], a: "Demon Slayer: Mugen Train" },
+                { q: "In Attack on Titan, what are the walls named?", o: ["Alpha, Beta, Gamma", "Maria, Rose, Sina", "One, Two, Three", "Red, Blue, Green"], a: "Maria, Rose, Sina" },
+                { q: "Which alchemist committed the ultimate taboo of human transmutation?", o: ["Roy Mustang", "Edward Elric", "Scar", "Greed"], a: "Edward Elric" },
+                { q: "What object can kill anyone whose name is written in it?", o: ["Death Note", "Grimoire", "Zanpakuto", "Dragon Radar"], a: "Death Note" },
+                { q: "Who is the main villain in Bleach's Soul Society and Arrancar arcs?", o: ["Yhwach", "Ulquiorra", "Sosuke Aizen", "Grimmjow"], a: "Sosuke Aizen" },
+                { q: "Which animation studio produced Spirited Away and My Neighbor Totoro?", o: ["Kyoto Animation", "Studio Ghibli", "MAPPA", "Ufotable"], a: "Studio Ghibli" },
+                { q: "What sword style does Roronoa Zoro use?", o: ["One Sword Style", "Two Sword Style", "Three Sword Style", "No Sword Style"], a: "Three Sword Style" },
+                { q: "What does the anime genre 'Isekai' translate to?", o: ["Magic School", "Another World", "Time Travel", "Giant Robots"], a: "Another World" },
+                { q: "Who is the protagonist of Tokyo Ghoul?", o: ["Eren Yeager", "Ken Kaneki", "Shinichi Izumi", "Kirito"], a: "Ken Kaneki" }
+            ],
+            "Hard": [
+                { q: "What was the first anime to win an Academy Award?", o: ["Akira", "Princess Mononoke", "Spirited Away", "My Neighbor Totoro"], a: "Spirited Away" },
+                { q: "Which mecha anime directed by Hideaki Anno premiered in 1995?", o: ["Gundam Wing", "Code Geass", "Neon Genesis Evangelion", "Gurren Lagann"], a: "Neon Genesis Evangelion" },
+                { q: "What is widely considered the first anime ever broadcast on TV (1963)?", o: ["Speed Racer", "Astro Boy", "Gigantor", "Doraemon"], a: "Astro Boy" },
+                { q: "What is the real name of the detective 'L' in Death Note?", o: ["L Lawliet", "L Lamperouge", "Light Yagami", "Nate River"], a: "L Lawliet" },
+                { q: "Who holds the highest known bounty in One Piece history?", o: ["Whitebeard", "Kaido", "Gol D. Roger", "Monkey D. Dragon"], a: "Gol D. Roger" },
+                { q: "In what year did the original Fullmetal Alchemist anime air?", o: ["2001", "2003", "2006", "2009"], a: "2003" },
+                { q: "Who is the creator of Hunter x Hunter and Yu Yu Hakusho?", o: ["Masashi Kishimoto", "Yoshihiro Togashi", "Hiro Mashima", "Naoko Takeuchi"], a: "Yoshihiro Togashi" },
+                { q: "According to legend, who originally left the 'One Piece' treasure?", o: ["Gol D. Roger", "Joy Boy", "Rocks D. Xebec", "Imu"], a: "Joy Boy" },
+                { q: "What is the name of the very first 'Jojo' in Jojo's Bizarre Adventure?", o: ["Joseph Joestar", "Jotaro Kujo", "Jonathan Joestar", "Josuke Higashikata"], a: "Jonathan Joestar" },
+                { q: "Who was the writer behind Puella Magi Madoka Magica?", o: ["Gen Urobuchi", "Kinoko Nasu", "Nisio Isin", "Makoto Shinkai"], a: "Gen Urobuchi" }
+            ]
+        },
+        "Cricket": {
+            "Easy": [
+                { q: "How many players are in a cricket team on the field?", o: ["9", "10", "11", "12"], a: "11" },
+                { q: "What is the international governing body of cricket?", o: ["FIFA", "BCCI", "ICC", "WCA"], a: "ICC" },
+                { q: "What does LBW stand for?", o: ["Leg Before Wicket", "Left Batting Wicket", "Long Ball Wide", "Line Before Wicket"], a: "Leg Before Wicket" },
+                { q: "Which country is credited with inventing cricket?", o: ["India", "Australia", "England", "South Africa"], a: "England" },
+                { q: "What is the general shape of a cricket field?", o: ["Square", "Rectangle", "Oval", "Triangle"], a: "Oval" },
+                { q: "What is a 'century' in cricket?", o: ["100 wickets", "100 runs", "100 matches", "100 catches"], a: "100 runs" },
+                { q: "How many bails rest on a single set of stumps?", o: ["1", "2", "3", "4"], a: "2" },
+                { q: "What is it called when a bowler bowls a ball completely out of reach?", o: ["No Ball", "Bouncer", "Wide", "Yorker"], a: "Wide" },
+                { q: "Hitting the ball over the boundary without it bouncing scores how many runs?", o: ["4", "5", "6", "10"], a: "6" },
+                { q: "What is the protective gear worn on a batter's legs called?", o: ["Guards", "Pads", "Shields", "Armor"], a: "Pads" }
+            ],
+            "Medium": [
+                { q: "Who has scored the most centuries in international cricket?", o: ["Ricky Ponting", "Virat Kohli", "Sachin Tendulkar", "Jacques Kallis"], a: "Sachin Tendulkar" },
+                { q: "What is the length of a standard cricket pitch?", o: ["20 yards", "22 yards", "24 yards", "26 yards"], a: "22 yards" },
+                { q: "Which country won the first Cricket World Cup in 1975?", o: ["Australia", "England", "West Indies", "India"], a: "West Indies" },
+                { q: "Which team holds the record for the highest score in an ODI innings (498)?", o: ["India", "Australia", "England", "South Africa"], a: "England" },
+                { q: "Who was the first male player to score 200 in an ODI?", o: ["Virender Sehwag", "Rohit Sharma", "Sachin Tendulkar", "Chris Gayle"], a: "Sachin Tendulkar" },
+                { q: "Which team has won the most ODI World Cups?", o: ["India", "West Indies", "Australia", "England"], a: "Australia" },
+                { q: "What is the term for a batter getting out without scoring a single run?", o: ["Zero", "Goose", "Duck", "Blank"], a: "Duck" },
+                { q: "What is the 'Ashes'?", o: ["Test series between IND and PAK", "Test series between ENG and AUS", "A T20 Tournament", "A type of cricket ball"], a: "Test series between ENG and AUS" },
+                { q: "Which format of international cricket is scheduled to last up to 5 days?", o: ["T20", "ODI", "Test Match", "The Hundred"], a: "Test Match" },
+                { q: "What is the distance between the two sets of stumps on a pitch?", o: ["20 yards", "22 yards", "24 yards", "18 yards"], a: "22 yards" }
+            ],
+            "Hard": [
+                { q: "Who bowled the fastest delivery ever recorded in international cricket?", o: ["Brett Lee", "Shoaib Akhtar", "Shaun Tait", "Mitchell Starc"], a: "Shoaib Akhtar" },
+                { q: "Who was the captain of India when they won the first ICC T20 World Cup?", o: ["Sourav Ganguly", "Rahul Dravid", "MS Dhoni", "Virat Kohli"], a: "MS Dhoni" },
+                { q: "Which player holds the record for the highest individual score in a Test match?", o: ["Brian Lara", "Matthew Hayden", "Virender Sehwag", "Don Bradman"], a: "Brian Lara" },
+                { q: "Who has taken the most wickets in Test cricket history?", o: ["Shane Warne", "James Anderson", "Muttiah Muralitharan", "Anil Kumble"], a: "Muttiah Muralitharan" },
+                { q: "Who was the first bowler to take all 10 wickets in a Test innings?", o: ["Anil Kumble", "Jim Laker", "Ajaz Patel", "Richard Hadlee"], a: "Jim Laker" },
+                { q: "Which player has the highest batting average in Test cricket history (99.94)?", o: ["Sachin Tendulkar", "Steve Smith", "Don Bradman", "Viv Richards"], a: "Don Bradman" },
+                { q: "Which country hosted the inaugural T20 World Cup in 2007?", o: ["India", "England", "South Africa", "Australia"], a: "South Africa" },
+                { q: "Which bowler has taken the most wickets in ODI cricket?", o: ["Wasim Akram", "Waqar Younis", "Muttiah Muralitharan", "Glenn McGrath"], a: "Muttiah Muralitharan" },
+                { q: "Who scored the first double century in Cricket World Cup history (2015)?", o: ["Martin Guptill", "Chris Gayle", "Rohit Sharma", "AB de Villiers"], a: "Chris Gayle" },
+                { q: "Which cricket ground is widely known as the 'Home of Cricket'?", o: ["MCG", "Eden Gardens", "Lord's", "The Oval"], a: "Lord's" }
+            ]
+        },
+        "Cars": {
+            "Easy": [
+                { q: "What does BMW stand for (translated to English)?", o: ["British Motor Works", "Bavarian Motor Works", "Berlin Motor Wheels", "Basic Motor Wagons"], a: "Bavarian Motor Works" },
+                { q: "Which company manufactures the Mustang?", o: ["Chevrolet", "Dodge", "Ford", "Toyota"], a: "Ford" },
+                { q: "What is the primary fuel for most traditional cars?", o: ["Electricity", "Water", "Gasoline/Petrol", "Hydrogen"], a: "Gasoline/Petrol" },
+                { q: "What is the luxury vehicle division of Toyota?", o: ["Acura", "Infiniti", "Lexus", "Genesis"], a: "Lexus" },
+                { q: "Which company makes the Civic and Accord models?", o: ["Toyota", "Nissan", "Honda", "Mazda"], a: "Honda" },
+                { q: "What do you call a car that plugs into the wall to charge?", o: ["Diesel Vehicle", "Electric Vehicle", "Steam Vehicle", "Solar Vehicle"], a: "Electric Vehicle" },
+                { q: "Which car brand's logo consists of four interlocking rings?", o: ["Audi", "BMW", "Mercedes-Benz", "Subaru"], a: "Audi" },
+                { q: "Henry Ford is famous for pioneering the use of the?", o: ["V8 Engine", "Assembly Line", "Automatic Transmission", "Seatbelt"], a: "Assembly Line" },
+                { q: "In an automatic car, which pedal is on the far right?", o: ["Clutch", "Brake", "Accelerator", "E-Brake"], a: "Accelerator" },
+                { q: "Which electric car brand produces the Model S, Model 3, Model X, and Model Y?", o: ["Rivian", "Lucid", "Polestar", "Tesla"], a: "Tesla" }
+            ],
+            "Medium": [
+                { q: "What was the first mass-produced hybrid car?", o: ["Honda Insight", "Toyota Prius", "Tesla Model S", "Chevrolet Volt"], a: "Toyota Prius" },
+                { q: "What car brand features a prancing horse on its logo?", o: ["Lamborghini", "Porsche", "Ferrari", "Maserati"], a: "Ferrari" },
+                { q: "Which Japanese company is famous for its use of rotary (Wankel) engines?", o: ["Subaru", "Nissan", "Honda", "Mazda"], a: "Mazda" },
+                { q: "What does SUV stand for?", o: ["Sport Utility Vehicle", "Standard Utility Vehicle", "Speed Upgrade Vehicle", "Sport Urban Vehicle"], a: "Sport Utility Vehicle" },
+                { q: "Which Italian brand is famous for models like the Countach and Aventador?", o: ["Ferrari", "Pagani", "Lamborghini", "Alfa Romeo"], a: "Lamborghini" },
+                { q: "What does ABS stand for in car safety?", o: ["Auto Braking System", "Anti-lock Braking System", "Advanced Brake System", "Anti-skid Braking System"], a: "Anti-lock Braking System" },
+                { q: "Which brand produces the iconic '911' sports car?", o: ["Audi", "BMW", "Porsche", "Mercedes-Benz"], a: "Porsche" },
+                { q: "What is the country of origin for the brand Volvo?", o: ["Germany", "Sweden", "Switzerland", "Denmark"], a: "Sweden" },
+                { q: "What was the first land vehicle to break the sound barrier?", o: ["ThrustSSC", "Bloodhound LSR", "Bluebird-Proteus", "Spirit of America"], a: "ThrustSSC" },
+                { q: "Which Japanese company produces the high-performance GT-R?", o: ["Toyota", "Honda", "Subaru", "Nissan"], a: "Nissan" }
+            ],
+            "Hard": [
+                { q: "Which car became the first production car to break the 300 mph barrier?", o: ["Koenigsegg Agera RS", "Bugatti Chiron Super Sport 300+", "Hennessey Venom GT", "SSC Tuatara"], a: "Bugatti Chiron Super Sport 300+" },
+                { q: "In what year was the first Chevrolet Corvette introduced?", o: ["1949", "1953", "1964", "1969"], a: "1953" },
+                { q: "What does 'GTI' stand for in Volkswagen models?", o: ["Grand Touring Injection", "Great Turbo Intake", "Global Track Initiative", "General Traffic Interceptor"], a: "Grand Touring Injection" },
+                { q: "Which car was the first to feature three-point seatbelts as standard equipment?", o: ["Mercedes-Benz W114", "Volvo Amazon", "Ford Model T", "Saab 92"], a: "Volvo Amazon" },
+                { q: "Which major automotive group revived the Bugatti brand in 1998?", o: ["BMW Group", "Toyota Motor Corp", "Volkswagen Group", "Fiat Chrysler"], a: "Volkswagen Group" },
+                { q: "What is the engine configuration of a current Formula 1 car?", o: ["2.4L V8", "3.0L V10", "1.6L V6 Turbo Hybrid", "2.0L Inline-4 Turbo"], a: "1.6L V6 Turbo Hybrid" },
+                { q: "The legendary McLaren F1 featured a naturally aspirated V12 engine made by which manufacturer?", o: ["Mercedes-Benz", "BMW", "Ferrari", "Porsche"], a: "BMW" },
+                { q: "As of 2022, what is the most expensive car ever sold at auction?", o: ["Ferrari 250 GTO", "Mercedes-Benz 300 SLR Uhlenhaut Coupe", "Bugatti Type 57SC Atlantic", "Aston Martin DBR1"], a: "Mercedes-Benz 300 SLR Uhlenhaut Coupe" },
+                { q: "Who is widely credited with inventing the first true modern automobile in 1886?", o: ["Henry Ford", "Gottlieb Daimler", "Karl Benz", "Nikolaus Otto"], a: "Karl Benz" },
+                { q: "What was the specific model of the time-traveling car in 'Back to the Future'?", o: ["Lotus Esprit", "DeLorean DMC-12", "Bricklin SV-1", "Pontiac Fiero"], a: "DeLorean DMC-12" }
+            ]
+        },
+        "Bike": {
+            "Easy": [
+                { q: "What does CC stand for in motorcycles?", o: ["Cruiser Class", "Cubic Centimeters", "Carbon Core", "Combustion Cycle"], a: "Cubic Centimeters" },
+                { q: "Which brand manufactures the 'Ninja' series of sportbikes?", o: ["Honda", "Yamaha", "Suzuki", "Kawasaki"], a: "Kawasaki" },
+                { q: "What crucial piece of safety gear do you wear on your head?", o: ["Hat", "Helmet", "Bandana", "Beanie"], a: "Helmet" },
+                { q: "A vehicle with two wheels is called a?", o: ["Tricycle", "Bicycle/Motorcycle", "Quadricycle", "Unicycle"], a: "Bicycle/Motorcycle" },
+                { q: "Which brand makes the 'CBR' series of motorcycles?", o: ["Honda", "Yamaha", "Suzuki", "Kawasaki"], a: "Honda" },
+                { q: "On a standard motorcycle, what lever do you pull to change gears?", o: ["Front Brake", "Throttle", "Clutch", "Choke"], a: "Clutch" },
+                { q: "Which brand produces the famous YZF-R1?", o: ["Kawasaki", "Suzuki", "Yamaha", "Honda"], a: "Yamaha" },
+                { q: "What is the most iconic American cruiser motorcycle brand?", o: ["Triumph", "Indian", "Harley-Davidson", "Victory"], a: "Harley-Davidson" },
+                { q: "Which Japanese motorcycle brand has green as its signature racing color?", o: ["Yamaha", "Honda", "Suzuki", "Kawasaki"], a: "Kawasaki" },
+                { q: "On a bicycle, what transfers power from the pedals to the rear wheel?", o: ["Belt", "Shaft", "Chain", "Gearbox"], a: "Chain" }
+            ],
+            "Medium": [
+                { q: "What company manufactures the legendary high-speed 'Hayabusa'?", o: ["Yamaha", "Kawasaki", "Suzuki", "Ducati"], a: "Suzuki" },
+                { q: "Which European country is the brand Ducati from?", o: ["Germany", "Japan", "USA", "Italy"], a: "Italy" },
+                { q: "Harley-Davidson motorcycles are most famous for what type of engine configuration?", o: ["Inline-4", "V-Twin", "Flat-6", "Single Cylinder"], a: "V-Twin" },
+                { q: "What is the term for off-road motorcycle racing on enclosed dirt circuits?", o: ["Enduro", "Trials", "Motocross", "Supermoto"], a: "Motocross" },
+                { q: "Which brand is famous for using Boxer (flat-twin) engines in their adventure bikes?", o: ["Triumph", "KTM", "BMW", "Moto Guzzi"], a: "BMW" },
+                { q: "What was the name of the first company to produce a series production motorcycle (1894)?", o: ["Indian", "Triumph", "Harley-Davidson", "Hildebrand & Wolfmüller"], a: "Hildebrand & Wolfmüller" },
+                { q: "Which brand produces the 'Panigale' superbike?", o: ["Aprilia", "MV Agusta", "Ducati", "BMW"], a: "Ducati" },
+                { q: "The Japanese 'Big Four' motorcycle manufacturers are Honda, Yamaha, Suzuki, and...?", o: ["Toyota", "Kawasaki", "Mitsubishi", "Subaru"], a: "Kawasaki" },
+                { q: "What does ABS stand for on a motorcycle?", o: ["Auto Braking System", "Anti-lock Braking System", "Advanced Brake System", "Anti-skid Braking System"], a: "Anti-lock Braking System" },
+                { q: "What is the most produced motor vehicle in history?", o: ["Ford Model T", "VW Beetle", "Honda Super Cub", "Toyota Corolla"], a: "Honda Super Cub" }
+            ],
+            "Hard": [
+                { q: "Who holds the record for the most premier class (MotoGP/500cc) World Championships?", o: ["Valentino Rossi", "Marc Marquez", "Giacomo Agostini", "Mick Doohan"], a: "Giacomo Agostini" },
+                { q: "What is the oldest motorcycle brand in continuous production?", o: ["Triumph", "Harley-Davidson", "Indian", "Royal Enfield"], a: "Royal Enfield" },
+                { q: "The 'Desmodromic' valve system is a signature technology of which brand?", o: ["BMW", "Ducati", "Aprilia", "MV Agusta"], a: "Ducati" },
+                { q: "Which production motorcycle was the first to break the 200 mph barrier?", o: ["Kawasaki Ninja H2R", "Suzuki Hayabusa", "MTT Turbine Superbike", "Honda CBR1100XX Blackbird"], a: "Suzuki Hayabusa" },
+                { q: "What is the exact length of the famous Isle of Man TT Snaefell Mountain Course?", o: ["25.5 miles", "37.73 miles", "42.1 miles", "50.0 miles"], a: "37.73 miles" },
+                { q: "Which brand produces the asymmetrical 'S1000RR' superbike?", o: ["KTM", "BMW", "Triumph", "Aprilia"], a: "BMW" },
+                { q: "What is the current maximum engine displacement limit for MotoGP class?", o: ["800cc", "990cc", "1000cc", "1200cc"], a: "1000cc" },
+                { q: "Which British brand is famous for the 'Bonneville' model?", o: ["Norton", "BSA", "Royal Enfield", "Triumph"], a: "Triumph" },
+                { q: "The premium motorcycle brand MV Agusta originates from which country?", o: ["Spain", "France", "Germany", "Italy"], a: "Italy" },
+                { q: "Which Austrian company bought the Swedish brand Husqvarna in 2013?", o: ["KTM", "BMW", "Ducati", "Piaggio"], a: "KTM" }
+            ]
+        },
+        "News": {
+            "Easy": [
+                { q: "What is the capital city of Ukraine?", o: ["Moscow", "Kyiv", "Minsk", "Warsaw"], a: "Kyiv" },
+                { q: "Who is the CEO of Tesla and SpaceX?", o: ["Jeff Bezos", "Bill Gates", "Elon Musk", "Mark Zuckerberg"], a: "Elon Musk" },
+                { q: "Which major social media platform was rebranded to 'X'?", o: ["Facebook", "Instagram", "Twitter", "Snapchat"], a: "Twitter" },
+                { q: "Who is the current President of the United States (as of 2024)?", o: ["Donald Trump", "Barack Obama", "Joe Biden", "Kamala Harris"], a: "Joe Biden" },
+                { q: "What is the name of the disease that caused a massive global pandemic starting in late 2019?", o: ["SARS", "Ebola", "COVID-19", "Zika"], a: "COVID-19" },
+                { q: "Which company is the largest search engine in the world?", o: ["Yahoo", "Bing", "Google", "DuckDuckGo"], a: "Google" },
+                { q: "What is the official currency of the United Kingdom?", o: ["Euro", "Dollar", "Pound Sterling", "Franc"], a: "Pound Sterling" },
+                { q: "Which video-sharing app is famous for short-form, vertical video content?", o: ["YouTube", "Vine", "TikTok", "Twitch"], a: "TikTok" },
+                { q: "Who is the creator and CEO of Facebook (Meta)?", o: ["Jack Dorsey", "Mark Zuckerberg", "Sundar Pichai", "Tim Cook"], a: "Mark Zuckerberg" },
+                { q: "Which tech company manufactures the iPhone?", o: ["Samsung", "Google", "Microsoft", "Apple"], a: "Apple" }
+            ],
+            "Medium": [
+                { q: "Which country hosted the 2022 FIFA Men's World Cup?", o: ["Brazil", "Russia", "Qatar", "France"], a: "Qatar" },
+                { q: "What is the name of the popular AI chatbot created by OpenAI?", o: ["Siri", "Alexa", "ChatGPT", "Cortana"], a: "ChatGPT" },
+                { q: "In 2023, which country became the first to successfully land a spacecraft near the Moon's south pole?", o: ["USA", "Russia", "China", "India"], a: "India" },
+                { q: "Following the death of Queen Elizabeth II, who became King of the UK?", o: ["King William V", "King Charles III", "King George VII", "King Edward VIII"], a: "King Charles III" },
+                { q: "Who is the Prime Minister of India (as of 2024)?", o: ["Rahul Gandhi", "Manmohan Singh", "Narendra Modi", "Amit Shah"], a: "Narendra Modi" },
+                { q: "Who took over as CEO of Apple after Steve Jobs?", o: ["Jony Ive", "Craig Federighi", "Tim Cook", "Steve Wozniak"], a: "Tim Cook" },
+                { q: "What was the name of the submersible that imploded while visiting the Titanic wreckage in 2023?", o: ["Nautilus", "Titan", "Deepsea Challenger", "Alvin"], a: "Titan" },
+                { q: "A devastating earthquake in February 2023 primarily affected which two countries?", o: ["Japan and South Korea", "Turkey and Syria", "Chile and Argentina", "Indonesia and Malaysia"], a: "Turkey and Syria" },
+                { q: "Which city is the host of the 2024 Summer Olympics?", o: ["Los Angeles", "Tokyo", "London", "Paris"], a: "Paris" },
+                { q: "Which major social media company did Elon Musk purchase in 2022?", o: ["Instagram", "Twitter", "Snapchat", "Reddit"], a: "Twitter" }
+            ],
+            "Hard": [
+                { q: "What powerful space telescope was launched by NASA on Dec 25, 2021?", o: ["Hubble", "Kepler", "Spitzer", "James Webb Space Telescope"], a: "James Webb Space Telescope" },
+                { q: "Which European country became the 31st member of NATO in April 2023?", o: ["Sweden", "Finland", "Ukraine", "Georgia"], a: "Finland" },
+                { q: "Who won the Nobel Peace Prize in 2023?", o: ["Narges Mohammadi", "Maria Ressa", "Denis Mukwege", "Malala Yousafzai"], a: "Narges Mohammadi" },
+                { q: "Who became Italy's first female Prime Minister in October 2022?", o: ["Giorgia Meloni", "Marine Le Pen", "Angela Merkel", "Sanna Marin"], a: "Giorgia Meloni" },
+                { q: "What is the name of NASA's program aiming to return humans to the Moon by the mid-2020s?", o: ["Apollo II", "Ares", "Artemis", "Orion"], a: "Artemis" },
+                { q: "Which of the following countries officially joined the BRICS bloc in January 2024?", o: ["Turkey", "UAE", "Mexico", "Indonesia"], a: "UAE" },
+                { q: "Who is the CEO of OpenAI, the company behind ChatGPT?", o: ["Ilya Sutskever", "Greg Brockman", "Sam Altman", "Satya Nadella"], a: "Sam Altman" },
+                { q: "Which country won the 2023 ICC Men's Cricket World Cup?", o: ["India", "England", "New Zealand", "Australia"], a: "Australia" },
+                { q: "Who holds the record for being the UK's shortest-serving Prime Minister (45 days in 2022)?", o: ["Boris Johnson", "Theresa May", "Rishi Sunak", "Liz Truss"], a: "Liz Truss" },
+                { q: "Which country won the 2023 FIFA Women's World Cup?", o: ["USA", "England", "Spain", "Germany"], a: "Spain" }
+            ]
+        },
+        "Football": {
+            "Easy": [
+                { q: "How many players are on a standard football team on the pitch?", o: ["9", "10", "11", "12"], a: "11" },
+                { q: "Which country has won the most FIFA World Cups?", o: ["Germany", "Brazil", "Italy", "Argentina"], a: "Brazil" },
+                { q: "What is a standard football match duration?", o: ["60 minutes", "80 minutes", "90 minutes", "100 minutes"], a: "90 minutes" },
+                { q: "What shape is a traditional football?", o: ["Oval", "Sphere", "Cube", "Cylinder"], a: "Sphere" },
+                { q: "Which part of the body is illegal for outfield players to use?", o: ["Head", "Chest", "Knee", "Hands"], a: "Hands" },
+                { q: "Who is known as 'CR7'?", o: ["Lionel Messi", "Cristiano Ronaldo", "Neymar", "Kylian Mbappé"], a: "Cristiano Ronaldo" },
+                { q: "What card is given for a severe foul, resulting in an ejection?", o: ["Yellow Card", "Blue Card", "Red Card", "Green Card"], a: "Red Card" },
+                { q: "In what country did modern football originate?", o: ["Brazil", "England", "France", "Spain"], a: "England" },
+                { q: "What is it called when a player scores three goals in one game?", o: ["Home Run", "Hat-trick", "Triple Crown", "Grand Slam"], a: "Hat-trick" },
+                { q: "What does FIFA stand for (translated roughly)?", o: ["Football International Federation Association", "International Federation of Association Football", "First International Football Association", "Federal International Football Agency"], a: "International Federation of Association Football" }
+            ],
+            "Medium": [
+                { q: "Which club has won the most UEFA Champions League titles?", o: ["Barcelona", "AC Milan", "Real Madrid", "Bayern Munich"], a: "Real Madrid" },
+                { q: "Who won the FIFA World Cup in 2018?", o: ["France", "Croatia", "Germany", "Argentina"], a: "France" },
+                { q: "What is the name of the prestigious award given to the best player in the world?", o: ["Golden Boot", "Ballon d'Or", "Puskas Award", "Golden Ball"], a: "Ballon d'Or" },
+                { q: "Which stadium is famously known as the home of Barcelona?", o: ["Santiago Bernabéu", "Old Trafford", "Camp Nou", "Anfield"], a: "Camp Nou" },
+                { q: "Who holds the record for the most goals in a single calendar year (91 goals in 2012)?", o: ["Cristiano Ronaldo", "Pelé", "Gerd Müller", "Lionel Messi"], a: "Lionel Messi" },
+                { q: "What league does Juventus play in?", o: ["Premier League", "La Liga", "Serie A", "Bundesliga"], a: "Serie A" },
+                { q: "Which country won the first ever World Cup in 1930?", o: ["Brazil", "Uruguay", "Argentina", "Italy"], a: "Uruguay" },
+                { q: "What is the offside rule primarily designed to prevent?", o: ["Fouling the goalkeeper", "Goal-hanging (camping near the goal)", "Handballs", "Wasting time"], a: "Goal-hanging (camping near the goal)" },
+                { q: "Who is the all-time top scorer in the FIFA World Cup tournaments?", o: ["Miroslav Klose", "Ronaldo Nazário", "Pelé", "Lionel Messi"], a: "Miroslav Klose" },
+                { q: "Which team is nicknamed 'The Red Devils'?", o: ["AC Milan", "Manchester United", "Bayern Munich", "Liverpool"], a: "Manchester United" }
+            ],
+            "Hard": [
+                { q: "Who is the only player to have won three FIFA World Cups?", o: ["Diego Maradona", "Franz Beckenbauer", "Pelé", "Zinedine Zidane"], a: "Pelé" },
+                { q: "Which player scored the famous 'Hand of God' goal?", o: ["Pelé", "Diego Maradona", "Lionel Messi", "Gary Lineker"], a: "Diego Maradona" },
+                { q: "Which country hosted the 2002 FIFA World Cup along with South Korea?", o: ["China", "Japan", "Australia", "Thailand"], a: "Japan" },
+                { q: "What is the maximum number of substitutions allowed in a standard competitive match (post-2020 rules)?", o: ["3", "4", "5", "6"], a: "5" },
+                { q: "Which club was originally formed as 'Dial Square' in 1886?", o: ["Chelsea", "Tottenham Hotspur", "Arsenal", "West Ham United"], a: "Arsenal" },
+                { q: "Who won the inaugural UEFA European Championship in 1960?", o: ["Soviet Union", "Yugoslavia", "France", "Czechoslovakia"], a: "Soviet Union" },
+                { q: "What is the name of the oldest cup competition in football?", o: ["Copa del Rey", "FA Cup", "Coppa Italia", "DFB-Pokal"], a: "FA Cup" },
+                { q: "Which African country was the first to reach the semi-finals of a World Cup?", o: ["Ghana", "Senegal", "Cameroon", "Morocco"], a: "Morocco" },
+                { q: "Who holds the record for the fastest goal in World Cup history (10.8 seconds)?", o: ["Hakan Şükür", "Clint Dempsey", "Pelé", "Christian Benteke"], a: "Hakan Şükür" },
+                { q: "Which goalkeeper has the most clean sheets in Premier League history?", o: ["Peter Schmeichel", "Petr Čech", "David Seaman", "Edwin van der Sar"], a: "Petr Čech" }
+            ]
+        }
+    };
+
+
+    // Check saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('themeIcon').innerText = '☀️';
+    }
+
+    // Auto-login if returning
+    const savedUser = localStorage.getItem("currentUser");
+    if (savedUser) {
+        document.getElementById("username").value = savedUser;
+    }
+
+    function toggleDark() {
+        document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
+        document.getElementById('themeIcon').innerText = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    
+    function handleEnter(e) {
+        if (e.key === 'Enter') {
+            login();
+        }
+    }
+
+    function login() {
+        user = document.getElementById("username").value.trim();
+
+        if (!user) {
+            const input = document.getElementById("username");
+            input.style.borderColor = "var(--danger)";
+            setTimeout(() => input.style.borderColor = "transparent", 1000);
+            return;
+        }
+
+        localStorage.setItem("currentUser", user);
+
+        document.getElementById("auth").classList.add("hidden");
+        const dashboard = document.getElementById("dashboard");
+        dashboard.classList.remove("hidden");
+        dashboard.classList.add("fade-in");
+
+        loadDashboard();
+    }
+
+    function loadDashboard() {
+        document.getElementById("welcome").innerText = "Hello, " + user + " 👋";
+
+        let stats = JSON.parse(localStorage.getItem(user)) || {
+            quizzes: 0,
+            best: 0,
+            badges: []
+        };
+
+        // Animate counting
+        animateValue("quizCount", 0, stats.quizzes, 1000);
+        animateValue("bestScore", 0, stats.best, 1000);
+
+        let badgeHtml = "";
+        if (stats.badges.length === 0) {
+            badgeHtml = "<p style='font-size:0.9rem; margin:0;'>Complete quizzes to earn badges!</p>";
+        } else {
+            stats.badges.forEach(b => {
+                badgeHtml += `<span class="badge">${b}</span>`;
+            });
+        }
+        document.getElementById("badges").innerHTML = badgeHtml;
+
+        loadLeaderboard();
+    }
+
+    function animateValue(id, start, end, duration) {
+        if (start === end) {
+            document.getElementById(id).innerText = end;
+            return;
+        }
+        let range = end - start;
+        let current = start;
+        let increment = end > start ? 1 : -1;
+        let stepTime = Math.abs(Math.floor(duration / range));
+        let obj = document.getElementById(id);
+        let timer = setInterval(function() {
+            current += increment;
+            obj.innerText = current;
+            if (current == end) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    function startQuiz() {
+        let cat = document.getElementById("category").value;
+        let diff = document.getElementById("difficulty").value;
+        
+        // Fetch questions based on selection
+        currentQuestions = [...questionBank[cat][diff]];
+        
+        // Optional: Shuffle the questions array
+        currentQuestions.sort(() => Math.random() - 0.5);
+
+        if (currentQuestions.length === 0) {
+            alert("No questions available for this selection yet!");
+            return;
+        }
+
+        document.getElementById("dashboard").classList.add("hidden");
+        const quizEl = document.getElementById("quiz");
+        quizEl.classList.remove("hidden");
+        quizEl.classList.add("fade-in");
+
+        current = 0;
+        score = 0;
+
+        showQuestion();
+    }
+
+    function showQuestion() {
+        let q = currentQuestions[current];
+        
+        document.getElementById("questionCounter").innerText = `Question ${current + 1} of ${currentQuestions.length}`;
+
+        const questionEl = document.getElementById("question");
+        questionEl.style.opacity = 0;
+        
+        setTimeout(() => {
+            questionEl.innerText = q.q;
+            questionEl.style.opacity = 1;
+        }, 200);
+
+        let html = "";
+        // Optional: Shuffle options
+        let shuffledOptions = [...q.o].sort(() => Math.random() - 0.5);
+
+        shuffledOptions.forEach((option, index) => {
+            html += `
+                <button class="option" style="animation: fadeIn 0.4s ease ${index * 0.1}s backwards;" onclick="selectAnswer('${option.replace(/'/g, "\\'")}')">
+                    ${option}
+                </button>
+            `;
+        });
+
+        document.getElementById("options").innerHTML = html;
+
+        updateProgress();
+        startTimer();
+    }
+
+    function selectAnswer(answer) {
+        clearInterval(timer);
+
+        if (answer === currentQuestions[current].a) {
+            score++;
+        }
+
+        current++;
+
+        if (current >= currentQuestions.length) {
+            finishQuiz();
+        } else {
+            showQuestion();
+        }
+    }
+
+    function updateProgress() {
+        let percent = (current / currentQuestions.length) * 100;
+        document.getElementById("progressBar").style.width = percent + "%";
+    }
+
+    function startTimer() {
+        timeLeft = 30;
+        const timerEl = document.getElementById("timer");
+        timerEl.innerText = timeLeft;
+        timerEl.style.color = "var(--text-main)";
+
+        timer = setInterval(() => {
+            timeLeft--;
+            timerEl.innerText = timeLeft;
+            
+            if(timeLeft <= 10) {
+                timerEl.style.color = "var(--danger)";
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                current++;
+
+                if (current >= currentQuestions.length) {
+                    finishQuiz();
+                } else {
+                    showQuestion();
+                }
+            }
+        }, 1000);
+    }
+
+    function finishQuiz() {
+        document.getElementById("quiz").classList.add("hidden");
+        const resultEl = document.getElementById("result");
+        resultEl.classList.remove("hidden");
+        
+        document.getElementById("progressBar").style.width = "100%";
+
+        const percentage = Math.round((score / currentQuestions.length) * 100);
+        document.getElementById("scoreText").innerText = `${score} / ${currentQuestions.length}`;
+        
+        let feedback = "";
+        if (percentage === 100) feedback = "Perfect! You're a genius! 🌟";
+        else if (percentage >= 80) feedback = "Great job! Almost perfect! 👏";
+        else if (percentage >= 50) feedback = "Good effort! Keep practicing. 👍";
+        else feedback = "You'll do better next time! 💪";
+        
+        document.getElementById("feedbackText").innerText = feedback;
+        document.getElementById("feedbackText").style.color = percentage >= 80 ? "var(--success)" : (percentage >= 50 ? "var(--primary)" : "var(--danger)");
+
+        let stats = JSON.parse(localStorage.getItem(user)) || {
+            quizzes: 0,
+            best: 0,
+            badges: []
+        };
+
+        stats.quizzes++;
+
+        if (score > stats.best) stats.best = score;
+
+        if (score === currentQuestions.length && !stats.badges.includes("Perfect Score")) {
+            stats.badges.push("Perfect Score");
+        }
+
+        if (stats.quizzes >= 5 && !stats.badges.includes("Quiz Master")) {
+            stats.badges.push("Quiz Master");
+        }
+
+        localStorage.setItem(user, JSON.stringify(stats));
+        saveLeaderboard();
+    }
+
+    function saveLeaderboard() {
+        let board = JSON.parse(localStorage.getItem("leaderboard")) || [];
+
+        let userIndex = board.findIndex(item => item.name === user);
+        
+        if (userIndex > -1) {
+            if (score > board[userIndex].score) {
+                board[userIndex].score = score;
+            }
+        } else {
+            board.push({ name: user, score: score });
+        }
+
+        board.sort((a, b) => b.score - a.score);
+        localStorage.setItem("leaderboard", JSON.stringify(board));
+    }
+
+    function loadLeaderboard() {
+        let board = JSON.parse(localStorage.getItem("leaderboard")) || [];
+        let html = "";
+
+        if (board.length === 0) {
+            html = "<tr><td colspan='2'>No scores yet. Be the first!</td></tr>";
+        } else {
+            board.slice(0, 5).forEach((item, index) => {
+                let medal = index === 0 ? "🥇" : (index === 1 ? "🥈" : (index === 2 ? "🥉" : ""));
+                html += `
+                    <tr>
+                        <td style="font-weight: ${index < 3 ? '600' : '400'}">${medal} ${item.name}</td>
+                        <td style="font-weight: ${index < 3 ? '600' : '400'}; color: var(--primary);">${item.score}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        document.getElementById("leaderboard").innerHTML = html;
+    }
+
+    function downloadCertificate() {
+        let text = `
+========================================
+           CERTIFICATE OF ACHIEVEMENT
+========================================
+
+ This is proudly presented to:
+ 
+        *** ${user.toUpperCase()} ***
+
+ For successfully completing the Quiz Master Pro challenge.
+ 
+ Final Score: ${score} out of ${currentQuestions.length}
+
+ Date: ${new Date().toLocaleDateString()}
+ 
+ Keep up the great work!
+========================================
+        `;
+
+        let blob = new Blob([text], { type: "text/plain" });
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `${user}_certificate.txt`;
+        a.click();
+    }
+    
+    function goHome() {
+        document.getElementById("result").classList.add("hidden");
+        const dashboard = document.getElementById("dashboard");
+        dashboard.classList.remove("hidden");
+        dashboard.classList.add("fade-in");
+        loadDashboard();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "smart-clean-india",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "server": "cd backend && npm start",
+    "dev:backend": "cd backend && npm run dev"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "install": "^0.13.0"
+  }
+}

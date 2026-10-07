@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>WebMade — Professional Websites & Apps for Your Business</title>
+  <meta name="title" content="WebMade — Professional Websites & Apps for Your Business">
+  <meta name="description" content="WebMade creates professional websites, e-commerce stores, web applications and mobile apps for businesses. Get started today with transparent pricing and direct WhatsApp support.">
+  <meta name="keywords" content="web development, business website, mobile app development, ecommerce website, website redesign, landing page, custom web app, WebMade">
+  <meta name="author" content="WebMade">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070a11">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webmade.agency/">
+  <meta property="og:title" content="WebMade — Professional Websites & Apps for Your Business">
+  <meta property="og:description" content="WebMade creates professional websites, e-commerce stores, web applications and mobile apps for businesses. Transparent pricing starting from ₹7,999.">
+  <meta property="og:image" content="/assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="WebMade — Professional Websites & Apps for Your Business">
+  <meta property="twitter:description" content="WebMade creates professional websites, e-commerce stores, web applications and mobile apps for businesses. Get started today.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236366f1'/%3E%3Cpath d='M8 11l5 10 3-6 3 6 5-10' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='24' cy='9' r='2' fill='%2306b6d4'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./src/style.css">
+
+  <!-- Schema.org JSON-LD Structured Data for LocalBusiness / ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WebMade",
+    "image": "https://webmade.agency/logo.png",
+    "description": "WebMade designs and develops professional websites, web applications, and mobile apps for businesses that want to grow online.",
+    "priceRange": "₹4,999 - ₹99,999+",
+    "telephone": "+91 7013234749",
+    "email": "hello@webmade.agency",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP STICKY NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="WebMade Home">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span>WebMade<span class="brand-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA Button -->
+      <div class="nav-actions">
+        <a href="https://wa.me/917013234749" data-wa-msg="general" class="btn btn-whatsapp btn-sm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.068-2.279-.588-1.748-.724-2.883-2.5-2.971-2.617-.087-.116-.708-.941-.708-1.792s.448-1.27.607-1.446c.159-.175.346-.219.462-.219s.232.003.332.008c.106.005.249-.04.39.299.144.35.49 1.196.533 1.284.043.088.072.19.014.305-.058.117-.087.19-.173.292-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 1.06 1.087 1.628.818.73 1.509.957 1.724 1.064.217.106.344.093.473-.053.129-.147.55-.642.697-.862.146-.22.293-.183.491-.11.199.073 1.258.593 1.474.701.217.109.362.161.415.253.054.092.054.534-.09 1.039z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.399C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.273c-1.637 0-3.15-.494-4.417-1.344l-.317-.213-3.148.884.887-3.072-.218-.328C3.896 14.887 3.409 13.483 3.409 12c0-4.737 3.854-8.591 8.591-8.591 4.737 0 8.591 3.854 8.591 8.591 0 4.737-3.854 8.591-8.591 8.591z"/>
+          </svg>
+          <span>WhatsApp Us</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="#work" class="mobile-nav-link">Our Work</a>
+    <a href="#why-us" class="mobile-nav-link">Why Choose Us</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="https://wa.me/917013234749" data-wa-msg="general" class="btn btn-whatsapp btn-lg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.068-2.279-.588-1.748-.724-2.883-2.5-2.971-2.617-.087-.116-.708-.941-.708-1.792s.448-1.27.607-1.446c.159-.175.346-.219.462-.219s.232.003.332.008c.106.005.249-.04.39.299.144.35.49 1.196.533 1.284.043.088.072.19.014.305-.058.117-.087.19-.173.292-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 1.06 1.087 1.628.818.73 1.509.957 1.724 1.064.217.106.344.093.473-.053.129-.147.55-.642.697-.862.146-.22.293-.183.491-.11.199.073 1.258.593 1.474.701.217.109.362.161.415.253.054.092.054.534-.09 1.039z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.399C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.273c-1.637 0-3.15-.494-4.417-1.344l-.317-.213-3.148.884.887-3.072-.218-.328C3.896 14.887 3.409 13.483 3.409 12c0-4.737 3.854-8.591 8.591-8.591 4.737 0 8.591 3.854 8.591 8.591 0 4.737-3.854 8.591-8.591 8.591z"/>
+      </svg>
+      <span>💬 Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section id="home" class="section hero-section">
+      <div class="container hero-grid">
+        <!-- Hero Left Content -->
+        <div class="hero-text-col">
+          <div class="hero-badge">
+            <span>🚀</span> Websites & Apps for Modern Businesses
+          </div>
+          <h1 class="hero-title">
+            We Build Websites & Apps That Help Businesses <span class="highlight">Grow.</span>
+          </h1>
+          <p class="hero-description">
+            WebMade designs and develops professional websites, web applications and mobile apps for businesses that want to grow online.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/917013234749" data-wa-msg="hero" class="btn btn-whatsapp btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.068-2.279-.588-1.748-.724-2.883-2.5-2.971-2.617-.087-.116-.708-.941-.708-1.792s.448-1.27.607-1.446c.159-.175.346-.219.462-.219s.232.003.332.008c.106.005.249-.04.39.299.144.35.49 1.196.533 1.284.043.088.072.19.014.305-.058.117-.087.19-.173.292-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 1.06 1.087 1.628.818.73 1.509.957 1.724 1.064.217.106.344.093.473-.053.129-.147.55-.642.697-.862.146-.22.293-.183.491-.11.199.073 1.258.593 1.474.701.217.109.362.161.415.253.054.092.054.534-.09 1.039z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.399C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.273c-1.637 0-3.15-.494-4.417-1.344l-.317-.213-3.148.884.887-3.072-.218-.328C3.896 14.887 3.409 13.483 3.409 12c0-4.737 3.854-8.591 8.591-8.591 4.737 0 8.591 3.854 8.591 8.591 0 4.737-3.854 8.591-8.591 8.591z"/>
+              </svg>
+              <span>💬 Chat on WhatsApp</span>
+            </a>
+            <a href="#pricing" class="btn btn-secondary btn-lg">View Pricing</a>
+          </div>
+          <div class="hero-tagline-strip">
+            <span>Fast</span>
+            <span class="dot">•</span>
+            <span>Professional</span>
+            <span class="dot">•</span>
+            <span>Mobile-Friendly</span>
+            <span class="dot">•</span>
+            <span>Business-Focused</span>
+          </div>
+        </div>
+
+        <!-- Hero Right Mockup Window -->
+        <div class="hero-visual">
+          <div class="mockup-window">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="mockup-dot dot-red"></span>
+                <span class="mockup-dot dot-yellow"></span>
+                <span class="mockup-dot dot-green"></span>
+              </div>
+              <div class="mockup-url-bar">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>https://yourbusiness.webmade.agency</span>
+              </div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-dash-header">
+                <div>
+                  <h3 style="font-size: 1.1rem; margin-bottom: 2px;">Your Digital Storefront</h3>
+                  <p style="font-size: 0.78rem; color: #94a3b8;">High-speed • 100% Responsive • Conversion-Ready</p>
+                </div>
+                <div class="mockup-dash-badge">
+                  <span class="pulse-dot"></span>
+                  <span>Live & Active</span>
+                </div>
+              </div>
+
+              <div class="mockup-stats-grid">
+                <div class="mockup-stat-card">
+                  <div class="mockup-stat-label">Performance Score</div>
+                  <div class="mockup-stat-val" style="color: #34d399;">99/100</div>
+                </div>
+                <div class="mockup-stat-card">
+                  <div class="mockup-stat-label">Mobile Friendly</div>
+                  <div class="mockup-stat-val" style="color: #38bdf8;">100% Ready</div>
+                </div>
+              </div>
+
+              <div class="mockup-preview-card">
+                <div class="mockup-preview-info">
+                  <h4>WhatsApp Lead Magnet</h4>
+                  <p>1-Click direct customer connection</p>
+                </div>
+                <span style="font-size: 1.4rem;">⚡</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Micro Card -->
+          <div class="mockup-floating-card">
+            <div class="mockup-floating-icon">💬</div>
+            <div class="mockup-floating-text">
+              <strong>Direct WhatsApp Chat</strong>
+              <span>Instant lead generation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT INFORMATION CARD (High Priority)
+         ========================================================================== -->
+    <section id="contact" class="section quick-contact-section">
+      <div class="container">
+        <div class="quick-contact-card">
+          <div class="quick-contact-grid">
+            <div>
+              <div class="section-badge">📞 Quick Connect</div>
+              <h2 class="contact-card-title">Let's Build Something Great</h2>
+              <p class="contact-card-subtitle">
+                Have questions or ready to launch your new website or mobile app? Reach out to us directly.
+              </p>
+
+              <div class="contact-items-grid">
+                <!-- WhatsApp Item -->
+                <div class="contact-item-box">
+                  <div class="contact-item-icon" style="color: var(--whatsapp-green); background: rgba(37, 211, 102, 0.1);">
+                    📱
+                  </div>
+                  <div class="contact-item-details">
+                    <div class="label">WhatsApp</div>
+                    <div class="value">Chat with us instantly</div>
+                    <div class="hint">Fastest response time</div>
+                  </div>
+                </div>
+
+                <!-- Email Item -->
+                <div class="contact-item-box">
+                  <div class="contact-item-icon" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1);">
+                    📧
+                  </div>
+                  <div class="contact-item-details">
+                    <div class="label">Email</div>
+                    <div class="value">
+                      <a href="mailto:your@email.com" data-config-email-link>your@email.com</a>
+                    </div>
+                    <div class="hint">Inquiries & quotes</div>
+                  </div>
+                </div>
+
+                <!-- Phone Item -->
+                <div class="contact-item-box">
+                  <div class="contact-item-icon" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">
+                    📞
+                  </div>
+                  <div class="contact-item-details">
+                    <div class="label">Phone</div>
+                    <div class="value">
+                      <a href="tel:+91XXXXXXXXXX" data-config-phone-link>+91 XXXXX XXXXX</a>
+                    </div>
+                    <div class="hint">Direct call assistance</div>
+                  </div>
+                </div>
+
+                <!-- Availability Item -->
+                <div class="contact-item-box">
+                  <div class="contact-item-icon" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1);">
+                    🕐
+                  </div>
+                  <div class="contact-item-details">
+                    <div class="label">Available</div>
+                    <div class="value" data-config-text="businessHours">Monday – Saturday</div>
+                    <div class="hint" data-config-text="businessHoursDetails">9:00 AM – 8:00 PM IST</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Right CTA Box -->
+            <div class="quick-contact-cta">
+              <h4>Get an Instant Quote on WhatsApp</h4>
+              <p>Skip the waiting time. Chat directly with our developers to discuss your vision and get custom pricing.</p>
+              <a href="https://wa.me/917013234749" data-wa-msg="contactCard" class="btn btn-whatsapp btn-lg btn-block">
+                <span>💬 Chat With Us on WhatsApp</span>
+              </a>
+              <span style="font-size: 0.78rem; color: #64748b;">No spam. Direct professional consultation.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION ("What We Build")
+         ========================================================================== -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">⚡ Our Expertise</div>
+          <h2 class="section-title">What We <span class="highlight">Build</span></h2>
+          <p class="section-subtitle">
+            Modern digital development tailored to your exact business goals, built with high performance and conversion in mind.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Business Websites -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">🌐</div>
+            <h3 class="service-title">Business Websites</h3>
+            <p class="service-desc">
+              Professional websites for businesses that want to establish a strong online presence and convert visitors into leads.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹7,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I am interested in getting a Business Website (from ₹7,999)." class="btn btn-primary btn-block">
+              <span>Get Started</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 2: E-Commerce Websites -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">🛒</div>
+            <h3 class="service-title">E-Commerce Websites</h3>
+            <p class="service-desc">
+              Online stores where customers can easily browse products, manage shopping carts, and place orders smoothly.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹14,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I am interested in building an E-Commerce Website (from ₹14,999)." class="btn btn-primary btn-block">
+              <span>Get Started</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 3: Web Applications -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">💻</div>
+            <h3 class="service-title">Web Applications</h3>
+            <p class="service-desc">
+              Custom web applications designed around your specific business requirements, workflows, databases, and customer portals.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹24,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want to discuss building a custom Web Application (from ₹24,999)." class="btn btn-secondary btn-block">
+              <span>Discuss Your Project</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 4: Mobile Apps -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">📱</div>
+            <h3 class="service-title">Mobile Apps</h3>
+            <p class="service-desc">
+              Professional Android and iOS applications with smooth UI, push notifications, authentication, and store deployment.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹29,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want to discuss developing a Mobile App (from ₹29,999)." class="btn btn-secondary btn-block">
+              <span>Discuss Your App</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 5: Landing Pages -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">🎯</div>
+            <h3 class="service-title">Landing Pages</h3>
+            <p class="service-desc">
+              High-quality landing pages designed specifically for ad campaigns, product launches, lead magnets, and conversions.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹4,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need a high-converting Landing Page (from ₹4,999)." class="btn btn-primary btn-block">
+              <span>Get Started</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 6: Website Redesign -->
+          <div class="glass-card service-card">
+            <div class="service-icon-wrap">🔄</div>
+            <h3 class="service-title">Website Redesign</h3>
+            <p class="service-desc">
+              Transform an old or outdated website into a modern, fast, high-converting professional digital presence.
+            </p>
+            <div class="service-pricing-row">
+              <span class="price-label">Starting from:</span>
+              <span class="price-value">₹8,999</span>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want to redesign my existing website (from ₹8,999)." class="btn btn-secondary btn-block">
+              <span>Redesign My Website</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PRICING SECTION (Websites & Mobile Apps)
+         ========================================================================== -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">💎 Transparent Investment</div>
+          <h2 class="section-title">Simple & Transparent <span class="highlight">Pricing</span></h2>
+          <p class="section-subtitle">
+            Choose a package that fits your business. Need something custom? Talk to us.
+          </p>
+        </div>
+
+        <!-- Pricing Toggle Tabs -->
+        <div class="pricing-tabs-wrapper">
+          <div class="pricing-tabs" role="tablist">
+            <button id="tabWebsites" class="pricing-tab-btn active" role="tab" aria-selected="true">Website Packages</button>
+            <button id="tabApps" class="pricing-tab-btn" role="tab" aria-selected="false">Mobile App Development</button>
+          </div>
+        </div>
+
+        <!-- 1. WEBSITE PRICING GRID -->
+        <div class="pricing-grid" id="websitePricingGrid">
+          <!-- Starter Website -->
+          <div class="pricing-card">
+            <div class="pricing-tier-name">Starter Website</div>
+            <div class="pricing-amount">
+              ₹7,999
+              <span class="period">/ one-time</span>
+            </div>
+            <p class="pricing-tier-desc">Perfect for small businesses and individuals getting online.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Up to 5 pages</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Mobile responsive</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Modern design</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Contact form</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> WhatsApp integration</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Basic SEO</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Social media links</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Website deployment</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingWebsiteStarter" class="btn btn-secondary btn-block">
+              Choose Starter
+            </a>
+          </div>
+
+          <!-- Business Website (Featured / Most Popular) -->
+          <div class="pricing-card featured">
+            <div class="popular-badge">⭐ MOST POPULAR</div>
+            <div class="pricing-tier-name" style="color: #a5b4fc;">Business Website</div>
+            <div class="pricing-amount">
+              ₹14,999
+              <span class="period">/ one-time</span>
+            </div>
+            <p class="pricing-tier-desc">Perfect for growing businesses that need a full digital presence.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Up to 8 pages</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Custom design</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Mobile responsive</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> WhatsApp integration</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Contact forms</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Basic SEO</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Google Analytics</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Performance optimization</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Social media integration</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Deployment</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingWebsiteBusiness" class="btn btn-whatsapp btn-block">
+              Choose Business
+            </a>
+          </div>
+
+          <!-- Premium Website -->
+          <div class="pricing-card">
+            <div class="pricing-tier-name">Premium Website</div>
+            <div class="pricing-amount">
+              ₹29,999+
+              <span class="period">/ starting</span>
+            </div>
+            <p class="pricing-tier-desc">For businesses that need advanced functionality & custom UI.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Custom UI/UX</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Advanced animations</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Custom functionality</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Advanced forms</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> SEO setup</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Performance optimization</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Analytics</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Third-party integrations</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Deployment</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Priority support</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingWebsitePremium" class="btn btn-primary btn-block">
+              Talk to Us
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. MOBILE APP PRICING GRID (Initially Hidden via JS tab or display none) -->
+        <div class="pricing-grid" id="appPricingGrid" style="display: none;">
+          <!-- Basic App -->
+          <div class="pricing-card">
+            <div class="pricing-tier-name">Basic App</div>
+            <div class="pricing-amount">
+              ₹29,999
+              <span class="period">/ starting</span>
+            </div>
+            <p class="pricing-tier-desc">Suitable for simple business apps and utility tools.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Modern UI</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Android app</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Basic backend</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> User authentication</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Basic database</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> App deployment assistance</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingAppBasic" class="btn btn-secondary btn-block">
+              Discuss Basic App
+            </a>
+          </div>
+
+          <!-- Business App -->
+          <div class="pricing-card featured">
+            <div class="popular-badge">CROSS-PLATFORM</div>
+            <div class="pricing-tier-name" style="color: #a5b4fc;">Business App</div>
+            <div class="pricing-amount">
+              ₹59,999
+              <span class="period">/ starting</span>
+            </div>
+            <p class="pricing-tier-desc">For businesses that need a more complete mobile application.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Android + iOS</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Custom UI</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Backend</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Authentication</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Database</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Notifications</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> API integrations</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Deployment assistance</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingAppBusiness" class="btn btn-whatsapp btn-block">
+              Discuss Business App
+            </a>
+          </div>
+
+          <!-- Custom App -->
+          <div class="pricing-card">
+            <div class="pricing-tier-name">Custom App</div>
+            <div class="pricing-amount">
+              ₹99,999+
+              <span class="period">/ starting</span>
+            </div>
+            <p class="pricing-tier-desc">For startups and businesses with custom requirements.</p>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Custom architecture</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Advanced UI/UX</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Android + iOS</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Backend & APIs</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Database</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Admin dashboard</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Third-party integrations</li>
+              <li class="pricing-feature-item"><span class="check-icon">✓</span> Advanced functionality</li>
+            </ul>
+
+            <a href="https://wa.me/917013234749" data-wa-msg="pricingAppCustom" class="btn btn-primary btn-block">
+              Discuss My App
+            </a>
+          </div>
+        </div>
+
+        <p class="pricing-disclaimer">
+          * Final pricing depends on project requirements, scope, and requested custom functionality.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WEBSITE + APP COMPARISON ("Not Sure What You Need?")
+         ========================================================================== -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">🎯 Clear Guidance</div>
+          <h2 class="section-title">Not Sure <span class="highlight">What You Need?</span></h2>
+          <p class="section-subtitle">
+            Find the right digital product for your specific business goal.
+          </p>
+        </div>
+
+        <div class="comparison-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Your Goal / Requirement</th>
+                <th>Recommended Solution</th>
+                <th>Typical Timeline</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="need-label">Online business presence</span></td>
+                <td><span class="rec-badge">Website</span></td>
+                <td style="color: var(--text-muted);">4 – 7 Days</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need an online business presence. Let's discuss a Website." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="need-label">Online store to sell products</span></td>
+                <td><span class="rec-badge">E-commerce Website</span></td>
+                <td style="color: var(--text-muted);">7 – 14 Days</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need an E-commerce store to sell products online." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="need-label">Customer management system / Portal</span></td>
+                <td><span class="rec-badge">Web App</span></td>
+                <td style="color: var(--text-muted);">2 – 4 Weeks</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need a custom Web App / management portal." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="need-label">Android / iOS application for users</span></td>
+                <td><span class="rec-badge">Mobile App</span></td>
+                <td style="color: var(--text-muted);">3 – 6 Weeks</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need a Mobile App for Android/iOS." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="need-label">Product / service ad promotion</span></td>
+                <td><span class="rec-badge">Landing Page</span></td>
+                <td style="color: var(--text-muted);">2 – 4 Days</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I need a high-converting Landing Page for ad promotions." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="need-label">Old website looks outdated & slow</span></td>
+                <td><span class="rec-badge">Website Redesign</span></td>
+                <td style="color: var(--text-muted);">5 – 8 Days</td>
+                <td>
+                  <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! My current website looks outdated and needs a redesign." class="btn btn-secondary btn-sm">Inquire</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="comparison-cta-box">
+            <div class="comparison-cta-text">
+              <h4>Still not sure what will work best for your business?</h4>
+              <p>WhatsApp us your idea and we'll help you choose the most cost-effective and result-driven solution.</p>
+            </div>
+            <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I am not sure what digital solution my business needs. Could you help me choose?" class="btn btn-whatsapp">
+              <span>💬 Ask on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PORTFOLIO / OUR WORK (Demo Projects)
+         ========================================================================== -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">✨ Showcase</div>
+          <h2 class="section-title">Our <span class="highlight">Work</span></h2>
+          <p class="section-subtitle">
+            Explore sample websites and applications crafted with modern aesthetics and business logic.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="portfolio-filter-tabs">
+          <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
+          <button class="portfolio-filter-btn" data-filter="website">Websites</button>
+          <button class="portfolio-filter-btn" data-filter="ecommerce">E-Commerce</button>
+          <button class="portfolio-filter-btn" data-filter="webapp">Web Apps</button>
+          <button class="portfolio-filter-btn" data-filter="mobile">Mobile</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Project 1: Luma Café -->
+          <div class="portfolio-card" data-category="website">
+            <div class="portfolio-image-wrap theme-luma">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #fed7aa;">☕ Luma Café & Bistro</div>
+                  <div style="font-size: 0.7rem; color: #fdba74;">Artisan Coffee & Dining Experience</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Online Reservation Ready</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">Restaurant Website</div>
+              <h3 class="portfolio-title">Luma Café</h3>
+              <p class="portfolio-desc">
+                Culinary website featuring interactive menu highlights, online table reservations, and direct WhatsApp takeout ordering.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="luma">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want a website like the Luma Café demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Forge Fitness -->
+          <div class="portfolio-card" data-category="website">
+            <div class="portfolio-image-wrap theme-forge">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #c7d2fe;">🏋️ FORGE FITNESS</div>
+                  <div style="font-size: 0.7rem; color: #a5b4fc;">High-Performance Training Facility</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Class Schedule • Membership Plans</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">Fitness Website</div>
+              <h3 class="portfolio-title">Forge Fitness</h3>
+              <p class="portfolio-desc">
+                High-energy athletic brand website built with membership tier signups, class schedules, and trainer portfolios.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="forge">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want a fitness website like the Forge Fitness demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: NovaTech -->
+          <div class="portfolio-card" data-category="webapp">
+            <div class="portfolio-image-wrap theme-novatech">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #6ee7b7;">⚡ NOVATECH</div>
+                  <div style="font-size: 0.7rem; color: #a7f3d0;">Enterprise Cloud Solutions</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Client Portal • Analytics Dashboard</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">Technology Company</div>
+              <h3 class="portfolio-title">NovaTech</h3>
+              <p class="portfolio-desc">
+                B2B corporate technology portal with service capabilities, interactive case studies, and client proposal intake funnels.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="novatech">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want a tech website like the NovaTech demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: UrbanNest -->
+          <div class="portfolio-card" data-category="website">
+            <div class="portfolio-image-wrap theme-urbannest">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #93c5fd;">🏡 UrbanNest Realty</div>
+                  <div style="font-size: 0.7rem; color: #bfdbfe;">Luxury Homes & Commercial Properties</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Interactive Property Filter</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">Real Estate Website</div>
+              <h3 class="portfolio-title">UrbanNest</h3>
+              <p class="portfolio-desc">
+                Real estate platform with property location filters, virtual brochure downloads, and 1-click WhatsApp agent consultation.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="urbannest">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want a real estate website like the UrbanNest demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Velora -->
+          <div class="portfolio-card" data-category="mobile">
+            <div class="portfolio-image-wrap theme-velora">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #f0abfc;">✨ Velora Spa & Salon</div>
+                  <div style="font-size: 0.7rem; color: #f5d0fe;">Luxury Wellness & Hair Studio</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Instant Stylist Booking</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">Beauty & Salon Website</div>
+              <h3 class="portfolio-title">Velora</h3>
+              <p class="portfolio-desc">
+                Aesthetic lifestyle and salon website with service pricing catalogs, stylist gallery, and WhatsApp appointment booking.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="velora">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want a salon website like the Velora demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: ShopNova -->
+          <div class="portfolio-card" data-category="ecommerce">
+            <div class="portfolio-image-wrap theme-shopnova">
+              <span class="portfolio-badge-pill">Demo Project</span>
+              <div class="portfolio-mockup-screen">
+                <div class="portfolio-screen-bar">
+                  <div class="portfolio-screen-dots">
+                    <span class="screen-dot"></span><span class="screen-dot"></span><span class="screen-dot"></span>
+                  </div>
+                </div>
+                <div class="portfolio-screen-body">
+                  <div style="font-size: 0.85rem; font-weight: 800; color: #c7d2fe;">🛍️ ShopNova Store</div>
+                  <div style="font-size: 0.7rem; color: #e0e7ff;">Modern Lifestyle & Apparel Store</div>
+                  <div style="background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: #fff;">Fast Cart • WhatsApp Orders</div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card-content">
+              <div class="portfolio-category">E-commerce Website</div>
+              <h3 class="portfolio-title">ShopNova</h3>
+              <p class="portfolio-desc">
+                High-conversion modern online storefront with fast product filtering, cart preview, and instant WhatsApp checkout flow.
+              </p>
+              <div class="portfolio-card-footer">
+                <button class="btn btn-secondary btn-sm" data-portfolio-modal="shopnova">View Details</button>
+                <a href="https://wa.me/917013234749" data-wa-custom="Hi WebMade! I want an e-commerce website like the ShopNova demo project." class="btn btn-whatsapp btn-sm">Like This?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Project Detail Modal -->
+    <div class="portfolio-modal-backdrop" id="portfolioModalBackdrop" role="dialog" aria-modal="true">
+      <div class="portfolio-modal">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close project modal">&times;</button>
+        <span class="portfolio-badge-pill" style="position: static; display: inline-block; margin-bottom: 12px;">Demo Project Overview</span>
+        <h3 id="modalProjectTitle" style="font-size: 1.6rem; margin-bottom: 4px;">Project Title</h3>
+        <p id="modalProjectType" style="font-size: 0.88rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 16px;">Category</p>
+        <p id="modalProjectDesc" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; color: var(--text-muted);"></p>
+
+        <h4 style="font-size: 0.95rem; text-transform: uppercase; color: #fff; margin-bottom: 12px; letter-spacing: 0.04em;">Key Features Included</h4>
+        <ul id="modalProjectFeatures" style="list-style: none; margin-bottom: 30px; font-size: 0.9rem; color: #cbd5e1;"></ul>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a id="modalProjectCta" href="https://wa.me/917013234749" class="btn btn-whatsapp btn-block">
+            <span>💬 Discuss Building Something Similar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         WHY CHOOSE WEBMADE
+         ========================================================================== -->
+    <section id="why-us" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">🛡️ The WebMade Advantage</div>
+          <h2 class="section-title">Why Choose <span class="highlight">WebMade?</span></h2>
+          <p class="section-subtitle">
+            We combine high-performance engineering with sales-focused design to deliver measurable business results.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <!-- 1. Fast Development -->
+          <div class="why-card">
+            <div class="why-icon-wrap" style="color: #fbbf24;">⚡</div>
+            <h3 class="why-title">Fast Development</h3>
+            <p class="why-desc">
+              We focus on building and launching your project efficiently without endless delays or messy handoffs.
+            </p>
+          </div>
+
+          <!-- 2. Mobile First -->
+          <div class="why-card">
+            <div class="why-icon-wrap" style="color: #38bdf8;">📱</div>
+            <h3 class="why-title">Mobile First</h3>
+            <p class="why-desc">
+              Your website and apps look and perform beautifully on phones, tablets, laptops, and wide desktops alike.
+            </p>
+          </div>
+
+          <!-- 3. Professional Design -->
+          <div class="why-card">
+            <div class="why-icon-wrap" style="color: #a855f7;">🎨</div>
+            <h3 class="why-title">Professional Design</h3>
+            <p class="why-desc">
+              Modern, polished interfaces designed specifically to make your business look credible, established, and trustworthy.
+            </p>
+          </div>
+
+          <!-- 4. Direct Support -->
+          <div class="why-card">
+            <div class="why-icon-wrap" style="color: var(--whatsapp-green);">🤝</div>
+            <h3 class="why-title">Direct Support</h3>
+            <p class="why-desc">
+              No complicated ticket portals. Communicate directly with us through WhatsApp for updates and questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HOW IT WORKS (4-Step Process)
+         ========================================================================== -->
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">🚀 Simple Process</div>
+          <h2 class="section-title">How It <span class="highlight">Works</span></h2>
+          <p class="section-subtitle">
+            Going from an idea to a live digital product in 4 straightforward steps.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 01 -->
+          <div class="process-card">
+            <div class="process-step-num">01</div>
+            <h3 class="process-title">Tell Us Your Idea</h3>
+            <p class="process-desc">
+              Contact us through WhatsApp and explain what you need for your business or product.
+            </p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="process-card">
+            <div class="process-step-num">02</div>
+            <h3 class="process-title">Get a Quote</h3>
+            <p class="process-desc">
+              We'll understand your requirements and provide clear, upfront pricing and a project timeline.
+            </p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="process-card">
+            <div class="process-step-num">03</div>
+            <h3 class="process-title">We Build</h3>
+            <p class="process-desc">
+              Our team designs and develops your responsive website or mobile application with regular check-ins.
+            </p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="process-card">
+            <div class="process-step-num">04</div>
+            <h3 class="process-title">Launch</h3>
+            <p class="process-desc">
+              Your project goes live, domain is connected, and everything is ready for your customers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE INSTANT ESTIMATOR / QUOTE CALCULATOR
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">🧮 Instant Estimator</div>
+          <h2 class="section-title">Estimate Your <span class="highlight">Project Cost</span></h2>
+          <p class="section-subtitle">
+            Configure your project preferences below to see an instant estimate and send it straight to our WhatsApp.
+          </p>
+        </div>
+
+        <div class="calculator-card">
+          <div class="calc-grid">
+            <!-- Left Options -->
+            <div class="calc-options-col">
+              <!-- Option 1: Type -->
+              <div>
+                <span class="calc-group-label">1. Select Project Type</span>
+                <div class="calc-pill-group">
+                  <button type="button" class="calc-pill calc-type-pill" data-price="4999" data-name="Landing Page">Landing Page (₹4,999)</button>
+                  <button type="button" class="calc-pill calc-type-pill selected" data-price="7999" data-name="Business Website">Business Website (₹7,999)</button>
+                  <button type="button" class="calc-pill calc-type-pill" data-price="14999" data-name="E-Commerce Store">E-Commerce Store (₹14,999)</button>
+                  <button type="button" class="calc-pill calc-type-pill" data-price="24999" data-name="Web Application">Web Application (₹24,999)</button>
+                  <button type="button" class="calc-pill calc-type-pill" data-price="29999" data-name="Mobile App">Mobile App (₹29,999)</button>
+                </div>
+              </div>
+
+              <!-- Option 2: Scope -->
+              <div>
+                <span class="calc-group-label">2. Page / Screen Scope</span>
+                <div class="calc-pill-group">
+                  <button type="button" class="calc-pill calc-scope-pill selected" data-price="0" data-name="Up to 5 Pages">Standard (Up to 5 Pages)</button>
+                  <button type="button" class="calc-pill calc-scope-pill" data-price="4000" data-name="Up to 10 Pages">Extended (Up to 10 Pages +₹4,000)</button>
+                  <button type="button" class="calc-pill calc-scope-pill" data-price="9000" data-name="15+ Pages / Custom Portal">Large Scope (+₹9,000)</button>
+                </div>
+              </div>
+
+              <!-- Option 3: Add-on Features -->
+              <div>
+                <span class="calc-group-label">3. Optional Add-ons</span>
+                <div class="calc-checkbox-group">
+                  <label class="calc-check-label">
+                    <input type="checkbox" class="calc-feature-check" data-price="3500" data-name="Online Payment Gateway">
+                    <span>💳 Payment Gateway (+₹3,500)</span>
+                  </label>
+                  <label class="calc-check-label">
+                    <input type="checkbox" class="calc-feature-check" data-price="5000" data-name="Admin CMS Portal">
+                    <span>⚙️ Custom Admin CMS (+₹5,000)</span>
+                  </label>
+                  <label class="calc-check-label">
+                    <input type="checkbox" class="calc-feature-check" data-price="2500" data-name="Speed & SEO Turbo Boost">
+                    <span>⚡ Speed & SEO Turbo (+₹2,500)</span>
+                  </label>
+                  <label class="calc-check-label">
+                    <input type="checkbox" class="calc-feature-check" data-price="2000" data-name="WhatsApp Auto-Bot Integration">
+                    <span>🤖 WhatsApp Lead Bot (+₹2,000)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Summary -->
+            <div class="calc-summary-col">
+              <div class="calc-summary-header">
+                <span style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Estimated Starting Cost</span>
+                <div class="calc-price-display" id="calcEstimatedTotal">₹7,999</div>
+                <p id="calcSummaryText" style="font-size: 0.88rem; color: #94a3b8;">Business Website • Up to 5 Pages</p>
+              </div>
+
+              <ul class="calc-summary-list">
+                <li><span style="color: var(--whatsapp-green);">✓</span> Includes responsive design & hosting setup</li>
+                <li><span style="color: var(--whatsapp-green);">✓</span> 100% Mobile & Tablet friendly</li>
+                <li><span style="color: var(--whatsapp-green);">✓</span> Direct developer consultation</li>
+              </ul>
+
+              <a href="https://wa.me/917013234749" id="calcWhatsAppCta" class="btn btn-whatsapp btn-lg btn-block">
+                <span>💬 Send Estimate to WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WHATSAPP HIGH-CONVERSION CTA BANNER
+         ========================================================================== -->
+    <section class="section whatsapp-banner-section">
+      <div class="container">
+        <div class="whatsapp-banner-card">
+          <div class="whatsapp-banner-icon">💬</div>
+          <h2 class="whatsapp-banner-title">Have an Idea? Let's Build It.</h2>
+          <p class="whatsapp-banner-desc">
+            Tell us what you're looking to build. We'll discuss your requirements and help you choose the right solution for your budget.
+          </p>
+          <a href="https://wa.me/917013234749" data-wa-msg="ideaCta" class="btn btn-whatsapp btn-lg">
+            <span>💬 Start a WhatsApp Chat</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ ACCORDION
+         ========================================================================== -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">❓ Common Questions</div>
+          <h2 class="section-title">Frequently Asked <span class="highlight">Questions</span></h2>
+          <p class="section-subtitle">
+            Clear, honest answers about our development process, pricing, and services.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How much does a website cost?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Our websites start from ₹7,999 for a clean, mobile-responsive Starter Website. E-Commerce stores start from ₹14,999, and custom web applications start from ₹24,999. The final price depends on the number of pages, custom animations, and specific integrations required.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How long does it take to build a website?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>A standard business website typically takes between 4 to 7 business days from requirement confirmation. Landing pages can be delivered within 2 to 4 days, while complex web applications and mobile apps usually take 3 to 6 weeks.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Can you build an e-commerce website?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, absolutely. We create custom e-commerce stores equipped with product catalogs, filtering, cart management, secure payment gateways, and direct WhatsApp order dispatch so you can start selling immediately.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Do you build Android and iOS apps?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. We build cross-platform mobile apps for both Android and iOS with clean UI/UX, robust backends, user authentication, push notifications, and assistance with store publishing on Google Play and Apple App Store.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Can you redesign my existing website?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! If your current website is outdated, slow, or not generating leads, we can redesign it from scratch into a modern, fast, mobile-friendly platform while keeping your content and improving your search rankings.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Do you provide hosting?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>We configure and assist with deploying your website on high-performance cloud hosting (such as Vercel, Netlify, Cloudflare, or your preferred server provider) and set up your custom domain and SSL certificates seamlessly.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Can I update the website myself?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. We can integrate a user-friendly Content Management System (CMS) or admin panel so you can easily modify text, upload new blog posts, add products, or change images without needing technical coding skills.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Do you provide maintenance?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, we offer ongoing maintenance, speed optimization, regular security backups, and feature updates to ensure your website or app stays secure, fast, and up to date.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 9 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How do I start a project?</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Starting is as simple as sending us a message on WhatsApp. We'll discuss your requirements, answer your questions, share a clear quote and timeline, and begin development once you approve.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FINAL CALL TO ACTION
+         ========================================================================== -->
+    <section class="section final-cta-section">
+      <div class="container">
+        <div class="final-cta-card">
+          <div class="section-badge">🚀 Take The Next Step</div>
+          <h2 class="final-cta-title">Ready to Take Your Business Online?</h2>
+          <p class="final-cta-desc">
+            Let's create a website or app that makes your business stand out and drives real customer growth.
+          </p>
+          <div class="final-cta-actions">
+            <a href="https://wa.me/917013234749" data-wa-msg="general" class="btn btn-whatsapp btn-lg">
+              <span>💬 WhatsApp Us</span>
+            </a>
+            <a href="#pricing" class="btn btn-secondary btn-lg">
+              <span>View Pricing</span>
+            </a>
+          </div>
+          <p class="final-cta-footnote">
+            No complicated process. Just tell us what you need.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo" aria-label="WebMade Home">
+            <div class="brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <span>WebMade<span class="brand-dot">.</span></span>
+          </a>
+          <p data-config-text="tagline">Websites & Apps Made for Your Business.</p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#work">Our Work</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Business Websites</a></li>
+            <li><a href="#services">E-Commerce Stores</a></li>
+            <li><a href="#services">Web Applications</a></li>
+            <li><a href="#services">Mobile Apps (Android & iOS)</a></li>
+            <li><a href="#services">Landing Pages</a></li>
+            <li><a href="#services">Website Redesign</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Social -->
+        <div>
+          <div class="footer-col-title">Get In Touch</div>
+          <ul class="footer-contact-list">
+            <li>
+              <span>📱</span>
+              <a href="https://wa.me/917013234749" data-wa-msg="general">WhatsApp: <span data-config-text="displayPhone">+91 XXXXX XXXXX</span></a>
+            </li>
+            <li>
+              <span>📧</span>
+              <a href="mailto:your@email.com" data-config-email-link>your@email.com</a>
+            </li>
+            <li>
+              <span>🕐</span>
+              <span data-config-text="businessHours">Monday – Saturday</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+            <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; font-weight: 700;">Connect With Us</div>
+            <div class="footer-social-links">
+              <a href="https://instagram.com" data-config-social="instagram" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://linkedin.com" data-config-social="linkedin" class="social-icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 WebMade. All rights reserved.</div>
+        <div style="color: #64748b; font-size: 0.82rem;">Websites & Apps Made for Your Business.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP BUTTON (Fixed Bottom-Right)
+       ========================================================================== -->
+  <a href="https://wa.me/917013234749" data-wa-msg="general" class="floating-whatsapp-widget" id="floatingWhatsAppBtn" aria-label="Chat with WebMade on WhatsApp">
+    <span class="floating-ping-badge"></span>
+    <span class="floating-wa-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.068-2.279-.588-1.748-.724-2.883-2.5-2.971-2.617-.087-.116-.708-.941-.708-1.792s.448-1.27.607-1.446c.159-.175.346-.219.462-.219s.232.003.332.008c.106.005.249-.04.39.299.144.35.49 1.196.533 1.284.043.088.072.19.014.305-.058.117-.087.19-.173.292-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 1.06 1.087 1.628.818.73 1.509.957 1.724 1.064.217.106.344.093.473-.053.129-.147.55-.642.697-.862.146-.22.293-.183.491-.11.199.073 1.258.593 1.474.701.217.109.362.161.415.253.054.092.054.534-.09 1.039z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.399C8.423 21.493 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.273c-1.637 0-3.15-.494-4.417-1.344l-.317-.213-3.148.884.887-3.072-.218-.328C3.896 14.887 3.409 13.483 3.409 12c0-4.737 3.854-8.591 8.591-8.591 4.737 0 8.591 3.854 8.591 8.591 0 4.737-3.854 8.591-8.591 8.591z"/>
+      </svg>
+    </span>
+    <span class="floating-wa-text">Chat with us</span>
+  </a>
+
+  <!-- Main JavaScript Module -->
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

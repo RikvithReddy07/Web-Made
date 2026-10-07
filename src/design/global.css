@@ -1,0 +1,41 @@
+/* src/design/global.css */
+@import "./tokens.css";
+
+/* Reset & box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Utility classes */
+.container {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.text-center { text-align: center; }
+
+/* Glass surface */
+.glass {
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  padding: var(--spacing-md);
+}
